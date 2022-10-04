@@ -9,7 +9,7 @@ Dokumentation unserer vorgegebenen Teilaufgaben:
 Begangener Mehraufwand für die Challenge:
 [Link](https://github.com/Immobilienrechner-Challenge/docs/tree/main/Mehraufwand)
 
-## Resitories
+## Repositories
 Dokumentation zu unseren Repositories:
 [Link](https://github.com/Immobilienrechner-Challenge/docs/tree/main/Repositories)
 
