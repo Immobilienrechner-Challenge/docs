@@ -1,5 +1,77 @@
 # List of linear regression models
 
+### LinearRegression
+| Kriterium              | Wert |
+| ---                    | --- |
+| Vorteil                |  |
+| Nachteil               |  |
+| Python Import          | from sklearn.linear_model import LinearRegression | 
+| Link zur Dokumentation | https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html |
+| Bemerkung              | |
+
+### Ridge
+| Kriterium              | Wert |
+| ---                    | --- |
+| Vorteil                | Reduktion von Features |
+| Nachteil               |  |
+| Python Import          | from sklearn.linear_model import Ridge | 
+| Link zur Dokumentation | https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html |
+| Bemerkung              |  |
+
+### Lasso
+| Kriterium              | Wert |
+| ---                    | --- |
+| Vorteil                | Reduktion von Features |
+| Nachteil               |  |
+| Python Import          | from sklearn.linear_model import Ridge | 
+| Link zur Dokumentation | https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html |
+| Bemerkung              |  |
+
+### Elastic-Net
+| Kriterium              | Wert |
+| ---                    | --- |
+| Vorteil                | Reduktion von Features |
+| Nachteil               |  |
+| Python Import          |  | 
+| Link zur Dokumentation |  |
+| Bemerkung              |  |
+
+### GradientBoostingRegressor
+| Kriterium              | Wert |
+| ---                    | --- |
+| Vorteil                |  |
+| Nachteil               |  |
+| Python Import          |  | 
+| Link zur Dokumentation |  |
+| Bemerkung              |  |
+
+### xgboost
+| Kriterium              | Wert |
+| ---                    | --- |
+| Vorteil                |  |
+| Nachteil               |  |
+| Python Import          |  | 
+| Link zur Dokumentation |  |
+| Bemerkung              |  |
+
+### HuberRegressor
+| Kriterium              | Wert |
+| ---                    | --- |
+| Vorteil                |  |
+| Nachteil               |  |
+| Python Import          |  | 
+| Link zur Dokumentation |  |
+| Bemerkung              |  |
+
+### Theil-Sen Regression
+| Kriterium              | Wert |
+| ---                    | --- |
+| Vorteil                |  |
+| Nachteil               |  |
+| Python Import          |  | 
+| Link zur Dokumentation |  |
+| Bemerkung              |  |
+
 | Modell                    | Vorteil                | Nachteil | Python Import                                                        | Link zur Dokumentation                                                                            |            Bemerkung            |   |
 |---------------------------|------------------------|----------|----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|:-------------------------------:|---|
 | LinearRegression          |                        |          | from sklearn.linear_model import LinearRegression                    | https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html      |                                 |   |
