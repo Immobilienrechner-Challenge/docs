@@ -1,2 +1,2 @@
 # docs
-Challenge documentation and ressources available under the [Wiki Tab](https://github.com/Immobilienrechner-Challenge/docs/wiki)
+Hier werden wir die Dokumentation unserer Challenge führen.
