@@ -1,3 +1,5 @@
+# List of linear regression models
+
 | Modell                    | Vorteil                | Nachteil | Python Import                                                        | Link zur Dokumentation                                                                            |            Bemerkung            |   |
 |---------------------------|------------------------|----------|----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|:-------------------------------:|---|
 | LinearRegression          |                        |          | from sklearn.linear_model import LinearRegression                    | https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html      |                                 |   |
