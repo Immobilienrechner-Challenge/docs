@@ -1,8 +1,12 @@
+#data 
 # Zur Verfügung gestellte Features
 Das zur Verfügung gestellte Datenset wurde als `.csv`-Datei abgespeichert und beinhaltet `13378` Zeilen und `108` Spalten. Von diesen 108 Spalten sind aber viele Features in mehrere Spalten aufgeteilt abgelegt, weshalb wir zunächst alle Informationen zu einer Variable in einer Spalte gesammelt haben. Zudem wurden mit `pd.drop_duplicates()` doppelte Einträge entfernt und nicht gültige Werte wurden entfernt.  
 Damit erhalten wir ein Datenset von `13048` Zeilen und `63` Spalten:
 
 ## Immobilien-Attribute
+
+^ef309f
+
 Unter den `Immobilien-Attributen` fassen wir Variablen zusammen, die eine Immobilie am direktesten definieren. Dazu zählen wir
 
 ### Wohnfläche 
