@@ -4,9 +4,6 @@ Das zur Verfügung gestellte Datenset wurde als `.csv`-Datei abgespeichert und b
 Damit erhalten wir ein Datenset von `13048` Zeilen und `63` Spalten:
 
 ## Immobilien-Attribute
-
-^ef309f
-
 Unter den `Immobilien-Attributen` fassen wir Variablen zusammen, die eine Immobilie am direktesten definieren. Dazu zählen wir
 
 ### Wohnfläche 
@@ -157,65 +154,133 @@ Typ: `string`
 | 13057 | 112      |
 
 ## Gemeinde spezifische Daten
-ForestDensityL
-ForestDensityM
-ForestDensityS
-Die Korrelieren vermutlich, wenn bestätigt, nur eine verwenden
+Variablen, die mit S, M oder L enden stammen vom Bundesamt für Statistik und deren Werte sind Durchschnittswerte einer kleinen, mitelgrossen oder grossen Fläche.
 
-NoisePollutionRailwayL
-NoisePollutionRailwayM
-NoisePollutionRailwayS
-Die Korrelieren vermutlich, wenn bestätigt, nur eine verwenden
+### Walddichte
+Name: `ForestDensityL`
+Name: `ForestDensityM`
+Name: `ForestDensityS`
 
-NoisePollutionRoadL
-NoisePollutionRoadM
-NoisePollutionRoadS
-Die Korrelieren vermutlich, wenn bestätigt, nur eine verwenden
+### Lärmbelastung Zugschienen
+Name: `NoisePollutionRailwayL`
+Name: `NoisePollutionRailwayM`
+Name: `NoisePollutionRailwayS`
 
-PopulationDensityL
-PopulationDensityM
-PopulationDensityS
-Die Korrelieren vermutlich, wenn bestätigt, nur eine verwenden
+### Lärmbelastung Strasse
+Name: `NoisePollutionRoadL`
+Name: `NoisePollutionRoadM`
+Name: `NoisePollutionRoadS`
 
-RiversAndLakesL
-RiversAndLakesM
-RiversAndLakesS
-Die Korrelieren vermutlich, wenn bestätigt, nur eine verwenden
+### Bevölkerungsdichte
+Name: `PopulationDensityL`
+Name: `PopulationDensityM`
+Name: `PopulationDensityS`
 
-WorkplaceDensityL
-WorkplaceDensityM
-WorkplaceDensityS
-Die Korrelieren vermutlich, wenn bestätigt, nur eine verwenden
+### Flüsse und Seen
+Name: `RiversAndLakesL`
+Name: `RiversAndLakesM`
+Name: `RiversAndLakesS`
 
-distanceToTrainStation
+### Arbeitsplatzdichte
+Name: `WorkplaceDensityL`
+Name: `WorkplaceDensityM`
+Name: `WorkplaceDensityS`
 
-gde_area_agriculture_percentage
-gde_area_forest_percentage
-gde_area_nonproductive_percentage
-gde_area_settlement_percentage
-gde_average_house_hold
-gde_empty_apartments
-gde_foreigners_percentage
-gde_new_homes_per_1000
-gde_politics_bdp
-gde_politics_cvp
-gde_politics_evp
-gde_politics_fdp
-gde_politics_glp
-gde_politics_gps
-gde_politics_pda
-gde_politics_rights
-gde_politics_sp
-gde_politics_svp
-gde_pop_per_km2
-gde_population
-gde_private_apartments
-gde_social_help_quota
-gde_tax
-gde_workers_sector1
-gde_workers_sector2
-gde_workers_sector3
-gde_workers_total
+### Distanz zum Bahnhof
+Name: `distanceToTrainStation`
+
+### Landwirtschaftsfläche
+Name: `gde_area_agriculture_percentage`
+
+### Waldfläche
+Name: `gde_area_forest_percentage`
+
+### Unproduktive Fläche
+Name: `gde_area_nonproductive_percentage`
+
+### Siedlungsfläche
+Name: `gde_area_settlement_percentage`
+
+### Durchschnittlicher Haushalt
+Name: `gde_average_house_hold`
+
+### Leere Wohnungen
+Name: `gde_empty_apartments`
+
+### Ausländer
+Name: `gde_foreigners_percentage`
+
+### Neubauten pro 1000 Einwohner
+Name: `gde_new_homes_per_1000`
+
+### Population pro Quadratkilometer
+Name: `gde_pop_per_km2`
+
+### Population
+Name: `gde_population`
+
+### Private Wohnungen
+Name: `gde_private_apartments`
+
+### Sozialhilfe Quote
+Name: `gde_social_help_quota`
+
+### Steuersatz
+Name: `gde_tax`
+
+### Arbeiter Sektor1 
+Name: `gde_workers_sector1`
+
+### Arbeiter Sektor2
+Name: `gde_workers_sector2`
+
+### Arbeiter Sektor3
+Name: `gde_workers_sector3`
+
+### Arbeiter gesamt
+Name: `gde_workers_total`
+
+### Verteilung Parteien
+Diese Variabeln geben den Anteil der vertretenen politischen Parteien an: 
+#### BDP
+Name: `gde_politics_bdp`
+Typ: `float`
+
+#### CVP
+Name: `gde_politics_cvp`
+Typ: `float`
+
+#### EVP
+Name: `gde_politics_evp`
+Typ: `float`
+
+#### FDP
+Name: `gde_politics_fdp`
+Typ: `float`
+
+#### GLP
+Name: `gde_politics_glp`
+Typ: `float`
+
+#### GPS
+Name: `gde_politics_gps`
+Typ: `float`
+
+#### PDA
+Name: `gde_politics_pda`
+Typ: `float`
+
+#### RIGHTS
+Name: `gde_politics_rights`
+Typ: `float`
+
+#### SP
+Name: `gde_politics_sp`
+Typ: `float`
+
+#### SVP
+Name: `gde_politics_svp`
+Typ: `float`
 
 
 ## Zielvariable
