@@ -1,5 +1,6 @@
 #repositories 
 # immoprice-backend
+TODO: Was für Technologien/Libraries
 ## Setup
 Um die API auf einer Docker Umgebung zu nutzen, muss man die vorgefertigte Datei [create_docker_container.sh](https://github.com/Immobilienrechner-Challenge/immoprice-backend/blob/main/create_docker_container.sh) starten und den Container Port 8099 anhand einem nginx Reverse Proxy freigeben. 
 ### Setup ohne Reverse Proxy
