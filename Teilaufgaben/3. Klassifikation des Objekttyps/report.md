@@ -3,9 +3,10 @@
 # Metriken zur Bewertung eines Klassifikationsmodells
 Die Fehlerrate ist eine einfache und häufig verwendete Metrik zur Quantifizierung der Genauigkeit eines Klassifikationsmodells und wird berechnet, indem die Anzahl falsch klassifizierter Observatio-nen durch die Anzahl aller Observationen geteilt wird:
 
-$$
-\frac{1}{n}\sum_{i=1}^{n}I\left(y_i\neq\widehat{y_i}\right)
-$$
+$$  
+\frac{1}{n}\sum_{i=1}^{n}I\left(y_i\neq\widehat{y_i}\right)  
+$$ 
+
 Wobei $I(y_i\neq\widehat{y_i})$ eine Dummy Variable ist, die den Wert $1$ annimmt, wenn die Bedingung erfüllt ist und $0$ wenn nicht.  
 Angenommen es wird in einem Umfeld klassifiziert, in welchem nur eine sehr kleine Anzahl der Observationen von der Standardklasse abweichen, zum Beispiel 2%, dann würde die Fehlerrate beim Einsatz des einfachsten Modells, welches nur die Standardklasse (die am häufigsten vorkommende Klasse des Datensatzes) zuweist, sehr klein sein (2%). Aus diesem Grund wurden weitere Metriken definiert, welche alle die Konfusionsmatrix als Grundlage verwenden.
 
@@ -26,16 +27,20 @@ Aus diesen Werten der Konfusionsmatrix können nun diverse Metriken berechnet we
 
 ## Recall
 Der Recall wird wie folgt berechnet:
-$$
+
+$$  
 \frac{TP}{TP+FN}
-$$
+$$  
+
 und entspricht dem Verhältnis aller korrekt als positiv klassifizierte Observationen zu der Anzahl Observationen der Klasse positiv: Der Recall gibt an, wie viele der insgesamt positiven Instanzen richtig klassifiziert wurden.
 
 ## Precision
 Die Precision wird wie folgt berechnet:
-$$
+
+$$  
 \frac{TP}{TP+FP}
-$$
+$$  
+
 und entspricht dem Verhältnis aller korrekt als positiv klassifizierte Observationen zu der Anzahl Observationen, welche vom Modell als positiv klassifiziert wurden: Es ist der Prozentsatz der Instanzen, die in die positive Klasse eingestuft werden, die tatsächlich richtig ist.
 
 
@@ -44,9 +49,11 @@ Das Ziel der Klassifikationsmodells der cml1 Challenge ist es, den Objekttyp auf
 
 ## F1 Score
 Dazu könnte der `F1-Score` eingesetzt werden, denn dieser Kombiniert die `Precision` und den `Recall` wie folgt in einer Metrik:
-$$
+
+$$  
 \frac{TP}{TP+\frac{1}{2}\left(FP+FN\right)}
-$$
+$$  
+
 Dieser Wert gewichtet die `Precision` und den `Recall` gleich und fällt
 - 	Hoch aus, wenn beide hoch sind
 - 	Mittel aus, wenn z.B. `Recall` hoch, aber `Precision` klein ist
@@ -54,16 +61,20 @@ Dieser Wert gewichtet die `Precision` und den `Recall` gleich und fällt
 
 ## Accuracy
 Die Genauigkeit wird berechnet durch
-$$
+
+$$  
 \frac{TP+TN}{TP+TN+FP+FN}
-$$
+$$  
+ 
 Und entspricht der umgekehrten Fehlerrate. Sie unterliegt also denselben Problemen im Falle einer unbalancierten Klassifikation.
 
 ## Matthews Correlation Coefficient (MCC)
 Der Matthews Correlation Coefficient fasst die komplette Konfusionsmatrix in einer Metrik zusammen:
-$$
+
+$$  
 MCC=\frac{TN\times T P-FP\times F N}{\sqrt{\left(TN+FN\right)\left(FP+TP\right)\left(TN+FP\right)\left(FN+TP\right)}}
-$$
+$$  
+
 Wie jeder Korrelationskoeffizient nimmt er Werte zwischen $-1$ und $1$ an und berücksichtigt auch Richtig negative (`TN`) Klassifikationen, welche vom `F1-Score` nicht berücksichtigt werden. Der `MCC` wird demnach nur hoch, wenn das Klassifikationsmodell richtig positiv und negativ klassifiziert. 
 
 ## Averaging
@@ -72,26 +83,32 @@ Das Konzept der Konfusionsmatrix kann ohne weiteres auf mehrere Dimensionen ausg
 
 ### Micro Averaging
 Micro Averaging ist eine Möglichkeit, $n$-Werte einer Metrik in eine zusammenzufassen. Dazu werden alle Werte der Konfusionsmatrix klassenunabhängig aufsummiert. Beispiel `TP`:
-$$
+
+$$  
 TP=\sum_{i=1}^{n}{TP_n}
-$$
+$$  
+
 Werden die zuvor beschriebenen Metriken nun mit diesen Werten berechnet, fallen sie alle gleich aus:
-$$
+
+$$  
 \mathrm{Recall}=\mathrm{Precision}=\mathrm{F1}=\mathrm{Accuracy}
-$$
+$$  
 
 ### Macro Averaging
 
 Eine Alternative dazu ist das Macro Averaging. Hier werden die Werte der Konfusionsmatrix pro Klasse verwendet, um die Metriken zu berechnen und anschliessend wird das arithmetische Mittel von allen berechnet:
-$$
+
+$$  
 F1=\frac{\sum_{i=1}^{n}{F1_i}}{n}
-$$
+$$  
 
 ### Weighted Averaging
 Um den stärker repräsentierten Klassen eine entsprechend höhere Gewichtung zu geben, kann das Macro Averaging mit dem gewichteten Mittel erweitert werden:
-$$
+
+$$  
 F1=\frac{\sum_{i=1}^{n}{F1_i}\cdot r_i}{\sum_{i=1}^{n}r_i}
-$$
+$$  
+
 Wobei $r_i$ der Anzahl Observationen in der $i$-ten Klasse entspricht. 
 
 ## ROC-Curve
