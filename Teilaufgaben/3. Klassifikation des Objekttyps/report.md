@@ -126,7 +126,28 @@ Für die Klassifikation des Objekttyps von Immobilien gewichten wir weder die `P
 Um klar identifizieren zu können, welches Modell wie gut performt, wird oft zunächst ein Null-Modell aufgestellt, welches als Klassifizierung einfach die Klasse angibt, welche am meisten vorkommt. Dieses Modell erzielt mit den hier eingesetzten Metriken jedoch keine brauchbaren Resultate, weshalb wir darauf verzichten.
 
 ## Neural Network
+Unser F1 weighted ist 0.56, unser F1 micro ist 0.63, unser F1 macro ist 0.15,
+
+Unser MCC ist mit diesem Modell ca. 0.43,
+
+Unser ROC AUC ist mit diesem Modell ca. 0.7
 
 ## KNN Classifier
+Unser F1 weighted ist 0.52, unser F1 micro ist 1.0, unser F1 macro ist 0.0,
+
+Unsere MCC ist mit diesem Modell ca. 0.29,
+
+Unser ROC AUC ist mit diesem Modell ca. 0.57
 
 ## Random Forest Classifier
+Unser F1 weighted ist 0.59, unser F1 micro ist 0.62, unser F1 macro ist 0.28,
+
+unsere MCC ist mit diesem Modell ca. 0.38,
+
+unser ROC AUC ist mit diesem Modell ca. 0.56
+## HistGradientBoostClassifier
+Unser F1 weighted ist 0.61, unser F1 micro ist 1.0, unser F1 macro ist 0.0,
+
+unsere MCC ist mit diesem Modell ca. 0.4,
+
+unser ROC AUC ist mit diesem Modell ca. 0.56
