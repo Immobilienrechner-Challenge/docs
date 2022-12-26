@@ -99,14 +99,14 @@ $$
 Eine Alternative dazu ist das Macro Averaging. Hier werden die Werte der Konfusionsmatrix pro Klasse verwendet, um die Metriken zu berechnen und anschliessend wird das arithmetische Mittel von allen berechnet:
 
 $$  
-F1=\frac{\sum_{i=1}^{n}{F1_i}}{n}
+F1= 	\frac{\sum\limits^{n}_{i=1} F1_i}{n}
 $$  
 
 ### Weighted Averaging
 Um den stärker repräsentierten Klassen eine entsprechend höhere Gewichtung zu geben, kann das Macro Averaging mit dem gewichteten Mittel erweitert werden:
 
 $$  
-F1=\frac{\sum_{i=1}^{n}{F1_i}\cdot r_i}{\sum_{i=1}^{n}r_i}
+F1= \frac{\sum\limits^{n}_{i=1}{F1_i} \cdot r_i}{\sum\limits^{n}_{i=1}r_i}
 $$  
 
 Wobei $r_i$ der Anzahl Observationen in der $i$-ten Klasse entspricht. 
