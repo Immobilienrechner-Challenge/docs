@@ -128,12 +128,22 @@ Um klar identifizieren zu können, welches Modell wie gut performt, wird oft zun
 ## Neural Network
 Unser F1 weighted ist 0.56, unser F1 micro ist 0.63, unser F1 macro ist 0.15,
 
+Das Neuronale Netzwerk ist sehr biased aufgrund der vielen "flat" Einträge und deswegen fällt der Macro
+dementsprechend tief aus. Man sieht es in der Confusion Matrix wo die Diagonaleinträge mehr oder weniger
+nicht vorhanden sind.
+
 Unser MCC ist mit diesem Modell ca. 0.43,
+
+Der MCC fürs Neuronale Netzwerk ist am höchsten.
 
 Unser ROC AUC ist mit diesem Modell ca. 0.7
 
+Der ROC AUC fürs Neuronale Netzwerk ist ebenfalls am höchsten.
+
 ## KNN Classifier
 Unser F1 weighted ist 0.52, unser F1 micro ist 1.0, unser F1 macro ist 0.0,
+
+Für macro = 0 wurde keine Erklärung gefunden.
 
 Unsere MCC ist mit diesem Modell ca. 0.29,
 
@@ -142,11 +152,18 @@ Unser ROC AUC ist mit diesem Modell ca. 0.57
 ## Random Forest Classifier
 Unser F1 weighted ist 0.59, unser F1 micro ist 0.62, unser F1 macro ist 0.28,
 
+Der Random Forest Classifier ist schon weniger biased als das Neuronale Netzwerk.
+Man sieht in der Confusion Matrix Diagonaleinträge, die daraufhin deuten, dass das Modell
+die richtige Vorhersage (TP = True Positiv) getroffen hat.
+
 unsere MCC ist mit diesem Modell ca. 0.38,
 
 unser ROC AUC ist mit diesem Modell ca. 0.56
+
 ## HistGradientBoostClassifier
 Unser F1 weighted ist 0.61, unser F1 micro ist 1.0, unser F1 macro ist 0.0,
+
+Für macro = 0 wurde keine Erklärung gefunden.
 
 unsere MCC ist mit diesem Modell ca. 0.4,
 
