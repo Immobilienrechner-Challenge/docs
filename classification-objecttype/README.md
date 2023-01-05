@@ -1,4 +1,5 @@
-# Einleitung
+# classification-objecttype
+Mit den Modellen in diesem Repository versuchen wir, anhand der uns gegebenen Informationen den Immobilientyp zu bestimmen.
 
 # Metriken zur Bewertung eines Klassifikationsmodells
 Die Fehlerrate ist eine einfache und häufig verwendete Metrik zur Quantifizierung der Genauigkeit eines Klassifikationsmodells und wird berechnet, indem die Anzahl falsch klassifizierter Observatio-nen durch die Anzahl aller Observationen geteilt wird:
@@ -113,7 +114,7 @@ Wobei $r_i$ der Anzahl Observationen in der $i$-ten Klasse entspricht.
 
 ## ROC-Curve
 Die Precision kann durch Anpassung der Entscheidungsschwelle, welche normalerweise bei $0.5$ liegt, erhöht werden. Wie bereits erwähnt wirkt sich das in der Regel direkt negativ auf den `Recall` aus. Diese Beziehung kann mit einer `ROC` (Receiver Operating Characteristic) Kurve dargestellt werden. Dazu wird das Verhältnis zwischen den Falsch Positiven und Richtig Positiven Klassifikationen zu allen möglichen Schwellwerten dargestellt:  
-![](roc_curve.png)      
+![ROC-Curve](img/roc_curve.png)      
 Idealerweise sieht die Kurve aus wie in diesem Beispiel: Sie schmiegt sich an die obere, rechte Ecke an. Das bedeutet, dass das Verhältnis von Richtig positiven Klassifikationen hoch ist im Verhältnis zu den Falsch Positiven. 
 
 ### ROC AUC

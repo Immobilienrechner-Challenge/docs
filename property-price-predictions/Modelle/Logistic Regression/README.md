@@ -1,4 +1,3 @@
-#models
 # List of logistic regression models
 
 ### LogisticRegression

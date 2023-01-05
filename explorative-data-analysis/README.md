@@ -1,4 +1,3 @@
-#repositories 
 # explorative-data-analysis
 ## Zweck
 Der Zweck dieses Repositories ist es, einen klaren Überblick über die vorhandenen Daten zu erhalten und ein 'tidy' Datenset zu erhalten. 
