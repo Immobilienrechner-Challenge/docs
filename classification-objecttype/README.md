@@ -127,45 +127,36 @@ Für die Klassifikation des Objekttyps von Immobilien gewichten wir weder die `P
 Um klar identifizieren zu können, welches Modell wie gut performt, wird oft zunächst ein Null-Modell aufgestellt, welches als Klassifizierung einfach die Klasse angibt, welche am meisten vorkommt. Dieses Modell erzielt mit den hier eingesetzten Metriken jedoch keine brauchbaren Resultate, weshalb wir darauf verzichten.
 
 ## Neural Network
-Unser F1 weighted ist 0.56, unser F1 micro ist 0.63, unser F1 macro ist 0.15,
+F1 weighted = 0.56  
+F1 micro = 0.63  
+F1 macro = 0.15
+MCC = 0.43  
+AUC = 0.7
 
 Das Neuronale Netzwerk ist sehr biased aufgrund der vielen "flat" Einträge und deswegen fällt der Macro
 dementsprechend tief aus. Man sieht es in der Confusion Matrix wo die Diagonaleinträge mehr oder weniger
-nicht vorhanden sind.
-
-Unser MCC ist mit diesem Modell ca. 0.43,
-
-Der MCC fürs Neuronale Netzwerk ist am höchsten.
-
-Unser ROC AUC ist mit diesem Modell ca. 0.7
-
-Der ROC AUC fürs Neuronale Netzwerk ist ebenfalls am höchsten.
+nicht vorhanden sind. Der MCC ist am höchsten was daraufhin deutet dass über alle Klassen hinweg die TP und TN  
+besser predicted worden sind. Ausserdem ist der AUC am höchsten was schlussfolgern lässt, dass das Verhältnis zwischen  
+falschen und richtigen Vorhersagen in diesem Modell am besten abschneidet.
 
 ## KNN Classifier
-Unser F1 weighted ist 0.52, unser F1 micro ist 1.0, unser F1 macro ist 0.0,
-
-Für macro = 0 wurde keine Erklärung gefunden.
-
-Unsere MCC ist mit diesem Modell ca. 0.29,
-
-Unser ROC AUC ist mit diesem Modell ca. 0.57
+F1 weighted = 0.52  
+F1 micro = ??  
+F1 macro = ??
+MCC = 0.29  
+AUC = 0.57
 
 ## Random Forest Classifier
-Unser F1 weighted ist 0.59, unser F1 micro ist 0.62, unser F1 macro ist 0.28,
-
-Der Random Forest Classifier ist schon weniger biased als das Neuronale Netzwerk.
-Man sieht in der Confusion Matrix Diagonaleinträge, die daraufhin deuten, dass das Modell
-die richtige Vorhersage (TP = True Positiv) getroffen hat.
-
-unsere MCC ist mit diesem Modell ca. 0.38,
-
-unser ROC AUC ist mit diesem Modell ca. 0.56
+F1 weighted = 0.59  
+F1 micro = 0.62  
+F1 macro = 0.28
+MCC = 0.38  
+AUC = 0.56
 
 ## HistGradientBoostClassifier
-Unser F1 weighted ist 0.61, unser F1 micro ist 1.0, unser F1 macro ist 0.0,
+F1 weighted = 0.61  
+F1 micro = ??  
+F1 macro = ??
+MCC = 0.4  
+AUC = 0.56
 
-Für macro = 0 wurde keine Erklärung gefunden.
-
-unsere MCC ist mit diesem Modell ca. 0.4,
-
-unser ROC AUC ist mit diesem Modell ca. 0.56
