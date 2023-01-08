@@ -135,14 +135,17 @@ AUC = 0.7
 
 Das Neuronale Netzwerk ist sehr biased aufgrund der vielen "flat" Einträge und deswegen fällt der Macro
 dementsprechend tief aus. Man sieht es in der Confusion Matrix wo die Diagonaleinträge mehr oder weniger
-nicht vorhanden sind. Der MCC ist am höchsten was daraufhin deutet dass über alle Klassen hinweg die TP und TN  
-besser predicted worden sind. Ausserdem ist der AUC am höchsten was schlussfolgern lässt, dass das Verhältnis zwischen  
-falschen und richtigen Vorhersagen in diesem Modell am besten abschneidet.
+nicht vorhanden sind.  
+Der MCC ist am höchsten was daraufhin deutet dass über alle Klassen hinweg die TP und TN  
+besser predicted worden sind, als im Vergleich zu den restlichen Modellen.
+Ausserdem ist der AUC am höchsten was schlussfolgern lässt, dass das Verhältnis zwischen  
+falschen und richtigen Vorhersagen in diesem Modell am besten abschneidet.  
+Das neuronale Netzwerk schneidet deswegen bei der Objecttype Classification am besten ab.
 
-## KNN Classifier
+## KN Classifier
 F1 weighted = 0.52  
-F1 micro = ??  
-F1 macro = ??
+F1 micro = 0.6  
+F1 macro = 0.29
 MCC = 0.29  
 AUC = 0.57
 
@@ -155,8 +158,8 @@ AUC = 0.56
 
 ## HistGradientBoostClassifier
 F1 weighted = 0.61  
-F1 micro = ??  
-F1 macro = ??
+F1 micro = 0.67  
+F1 macro = 0.3
 MCC = 0.4  
 AUC = 0.56
 
