@@ -115,6 +115,8 @@ Wobei $r_i$ der Anzahl Observationen in der $i$-ten Klasse entspricht.
 ## ROC-Curve
 Die Precision kann durch Anpassung der Entscheidungsschwelle, welche normalerweise bei $0.5$ liegt, erhöht werden. Wie bereits erwähnt wirkt sich das in der Regel direkt negativ auf den `Recall` aus. Diese Beziehung kann mit einer `ROC` (Receiver Operating Characteristic) Kurve dargestellt werden. Dazu wird das Verhältnis zwischen den Falsch Positiven und Richtig Positiven Klassifikationen zu allen möglichen Schwellwerten dargestellt:  
 ![ROC-Curve](img/roc_curve.png)      
+<img width="663" alt="image" src="https://user-images.githubusercontent.com/98284163/211204858-36913401-ab7a-47c6-8f89-cef4219945bc.png">
+
 Idealerweise sieht die Kurve aus wie in diesem Beispiel: Sie schmiegt sich an die obere, rechte Ecke an. Das bedeutet, dass das Verhältnis von Richtig positiven Klassifikationen hoch ist im Verhältnis zu den Falsch Positiven. 
 
 ### ROC AUC
