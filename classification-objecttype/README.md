@@ -136,7 +136,8 @@ MCC = 0.43
 AUC = 0.7
 
 Das Neuronale Netzwerk ist sehr biased aufgrund der vielen "flat" Einträge und deswegen fällt der Macro
-dementsprechend tief aus. Man sieht es in der Confusion Matrix wo die Diagonaleinträge mehr oder weniger
+dementsprechend tief aus.  
+Man sieht es in der Confusion Matrix wo die Diagonaleinträge mehr oder weniger
 nicht vorhanden sind.  
 Der MCC ist am höchsten was daraufhin deutet dass über alle Klassen hinweg die TP und TN  
 besser predicted worden sind, als im Vergleich zu den restlichen Modellen.
