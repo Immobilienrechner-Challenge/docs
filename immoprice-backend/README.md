@@ -1,4 +1,4 @@
-# immoprice-frontend
+# immoprice-backend
 Dieses Backend wurde mit basiert auf Django v4.1.3. Dependencies werden [hier](https://github.com/Immobilienrechner-Challenge/immoprice-backend/blob/main/requirements.txt) aufgelistet.
 ## Setup
 Um die API auf einer Docker Umgebung zu nutzen, muss man die vorgefertigte Datei [create_docker_container.sh](https://github.com/Immobilienrechner-Challenge/immoprice-backend/blob/main/create_docker_container.sh) starten und den Container Port 8099 anhand einem nginx Reverse Proxy freigeben. 
@@ -33,8 +33,10 @@ Hier wird die relevante Schnittstelle erfasst:
 
 ### Swagger Dokumentation
 Swagger Dokumentation zu dieser Schnittstelle ist unter [https://app.swaggerhub.com/apis-docs/GABRIELTORRES/immoprice.ch/1.0.0](https://app.swaggerhub.com/apis-docs/GABRIELTORRES/immoprice.ch/1.0.0) verfügbar.
+
 ### Bekannte Probleme
 Das Modell wurde nur auf eine kleine Stichprobe der Daten in der Schweiz trainiert. Deswegen können einige Prognosen eine starke Abweichung vom realen Preis haben.
 Das Modell ist nicht in der Lage spezielle Fälle, wie z.B. wertvolle Aussichten, Immobilienlage an einem speziellen Ort, Innenausstattung oder historische Signifikanz  miteinberechnen. 
+
 ## Cross-Origin Restrictions
 Es können Cross-Origin Restriction Fehler auftauchen, da die API konfiguriert ist, Anfragen aus https://immoprice.ch zu verarbeiten. Falls dies auftritt, muss die Option im Browser manuell deaktiviert werden.
