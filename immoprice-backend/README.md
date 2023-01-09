@@ -31,6 +31,8 @@ Hier wird die relevante Schnittstelle erfasst:
 | Output       | price(float) |
 | Beispiel     | [Hier](https://api.immoprice.ch/model1/?living_space=200&type=villa&rooms=10&zip_code=8050&floor_space=300&plot_area=500&last_refurbishment=2020&year_built=2010) |
 
+### Swagger Dokumentation
+Swagger Dokumentation zu dieser Schnittstelle ist unter [https://app.swaggerhub.com/apis-docs/GABRIELTORRES/immoprice.ch/1.0.0](https://app.swaggerhub.com/apis-docs/GABRIELTORRES/immoprice.ch/1.0.0) verfügbar.
 ### Bekannte Probleme
 Das Modell wurde nur auf eine kleine Stichprobe der Daten in der Schweiz trainiert. Deswegen können einige Prognosen eine starke Abweichung vom realen Preis haben.
 Das Modell ist nicht in der Lage spezielle Fälle, wie z.B. wertvolle Aussichten, Immobilienlage an einem speziellen Ort, Innenausstattung oder historische Signifikanz  miteinberechnen. 
