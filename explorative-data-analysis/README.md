@@ -1,4 +1,5 @@
 # Exploratory Data Analysis
+
 ## Einleitung
 Das Repository `explorative-data-analysis` wurde erstellt, um einen klaren Überblick über die in dieser Challenge zur Verfügung gestellten Daten zu erhalten und um einen Weg zu finden, die vorhandenen Daten soweit wie möglich zu konsolidieren und zu säubern.  
 Im Verlauf der Challenge wurden uns drei Datensätze bereitgestellt:
@@ -124,7 +125,6 @@ Wo Informationen in dieser Spalte der Version zwei nicht vorhanden sind, können
 #### Art
 Die Art einer Immobilie ist in der Spalte `type` der Version eins verfügbar. In Version zwei werden Daten aus homegate.ch dazugelesen, wo die Art der Immobilie anders beschrieben und kategorisiert wird. Diese neuen Arten wurden auf die bisher bekannten Arten von immoscout24.ch zugeordnet und in der Spalte `type_unified` abgelegt. In der kaggle Version der Daten steht nur noch diese neue Spalte zur Verfügung. 
 
-
 #### Restliche Merkmale
 Die folgenden restlichen Merkmalen tauchen nur ab Version zwei und in einer Spalte auf und können deshalb direkt so übernommen werden:
 - Features
@@ -155,7 +155,9 @@ Ein kompletter Bericht über die Zusammensetzung der Daten kann pro Version im V
 
 ### Version 1
 Die Version eins der Daten hat im unbehandelten Zustand 108 Spalten und 13378 Zeilen. Nach der Bereinigung haben wir ein Datensatz mit 61 Spalten und 12338 Zeilen. Dabei sind sämtliche Umweltfaktoren, Koordinaten, Kantone, Gemeinden, Postleitzahlen, Arten und Gemeindemerkmale ausser der politischen Landschaft zu 100% gefüllt. Eine Für die Klassifizierung relevante Eigenschaft der Daten ist die ungleichmässige Verteilung der Arten von Immobilien: 
+
 ![](./img/type_distr.png)  
+
 Mit Abstand die meisten Immobilien sind Wohnungen, gefolgt von freistehenden Häusern. Alle anderen Kategorien sind zu weniger als 10% vertreten.  
 
 Sehr schlecht ausgeprägt ist das Merkmal Strasse (32%) und Strassennummer (21%), Nutzfläche (22%), Grundstücksfläche (36%) und Stockwerk(43%).  
@@ -166,6 +168,7 @@ Der durchschnittliche Preis einer Immobilie im Datensatz liegt bei CHF 1.2 Milli
 
 ### Version 2
 Die zweite Version der Daten hat im rohen Zustand 134 Spalten und 22481 Zeilen. Nach der Bereinigung hat der Datensatz noch 64 Spalten und 21412 Zeilen. Die Merkmale der Umweltfaktoren, Koordinaten, Kanton, Gemeinde, Postleitzahlen, Art und Gemeindemerkmale ausser der politischen Landschaft sind nach wie vor zu 100% gefüllt und die Verteilung der Arten von Immobilien ist nach wie vor sehr ungleichmässig:
+
 ![](./img/type_distr2.png)  
 
 Die Merkmale letzte Sanierung (10%), Strasse (19%) und Strassennummer (12%), Stockwerk (25%), Nutzfläche (26%), Baujahr (32%), Grundstücksfläche (36%) und features (39%) sind die am wenigsten gefüllten Merkmale.  
@@ -175,13 +178,13 @@ Der durchschnittliche Preis einer Immobilie im Datensatz liegt bei CHF 1.3 Milli
 
 ### Kaggle
 Die kaggle Version der Daten hat unverändert 132 Spalten und 24556 Zeilen. Die Anzahl Zeilen dürfen wir nicht verändern, aber die Spalten reduzieren wir auf 64. Auch hier sind die Merkmale der Umweltfaktoren, Koordinaten, Kanton, Gemeinde, Postleitzahlen und Gemeindemerkmale ausser der politischen Landschaft sind nach wie vor zu 100% gefüllt und die Verteilung der Arten von Immobilien ist nach wie vor sehr ungleichmässig:
+
 ![](./img/type_distr3.png)  
 112 Observationen besitzen aber keine Art der Immobilie.  
 
 Die Merkmale letzte Sanierung (12%), Nutzfläche (21%), Stockwerk (22%), Strasse (34%) und Strassennummer (22%), Grundstücksfläche (36%), Baujahr (38%) und features (43%) sind die am wenigsten gefüllten Merkmale.  
 
 Der Preis ist nicht vorhanden.
-
 
 ## Verwendung
 Sämtliche Notebooks im Verzeichnis `dataWrangling` können ohne Nebeneffekte ausgeführt werden. Sie liefern eine ausführliche Begründung für die weiter oben beschriebene Konsolidierung der Spalten. Für Version eins und zwei der Daten haben wir jeweils vier Notebooks erstellt. Das erste bietet eine Übersicht über die vorhandenen Spalten. In dem zweiten Notebook explorieren wir, welche Daten in Spalten wie `table` und `details` enthalten und extrahierbar sind. Das dritte Notebook behandelt dann jeweils sämtliche numerischen Merkmale und das vierte und letzte Notebook die qualitativen Merkmale.  
