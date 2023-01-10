@@ -5,20 +5,20 @@ Das Repository `explorative-data-analysis` wurde erstellt, um einen klaren Über
 Im Verlauf der Challenge wurden uns drei Datensätze bereitgestellt:
 - Eine erste Version, in diesem Projekt abgespeichert als `data/immo_data_202208.csv`
 - Eine zweite Version, in diesem Projekt abgespeichert als `data/immo_data_202208_v2.parquet`
-- Ein _kaggle_-Datensatz, in diesem Projekt abgespeichert als `data/kaggle_uncleqned.parquet`
+- Ein _kaggle_-Datensatz, in diesem Projekt abgespeichert als `data/kaggle_uncleaned.parquet`
 
-Die erste Version basiert auf Daten, welche von immoscout24.ch extrahiert wurden. Zusätzlich wurden Daten vom Bundesamt für Statistik und weiteren Quellen zu den vorhandenen Einträgen dazugelesen. In der zweiten Version des Datensatzes sind Daten basierend auf Extraktionen von homegate.ch hinzugefügt worden. Der kaggle-Datensatz ist wie die Version 2 basierend auf einem Mix von immoscout24.ch und homegate.ch, sowie den zusätzlich gelesenen Attributen.  
+Die erste Version basiert auf Daten, welche von [immoscout24.ch](https://immoscout24.ch) extrahiert wurden. Zusätzlich wurden Daten vom Bundesamt für Statistik und weiteren Quellen zu den vorhandenen Einträgen dazugelesen. In der zweiten Version des Datensatzes sind Daten basierend auf Extraktionen von [homegate.ch](https://homegate.ch) hinzugefügt worden. Der Kaggle-Datensatz ist wie die Version 2 basierend auf einem Mix von [immoscout24.ch](immoscout24.ch) und [homegate.ch](homegate.ch), sowie den zusätzlich gelesenen Attributen.  
 
 Dieser Bericht beschreibt nachfolgend die von den 4 Wrangeleers (Si Ben Tran, Gabriel Torres Gamez, Haris Alic, Alexander Shanmugam) eingesetzte Methodik, um das zuvor beschriebene Ziel zu erreichen und die dabei gefunden Erkenntnisse, sowie die Verwendung des erstellten Quellcodes.  
 Es ist nicht trivial, einen tiefen und nützlichen Überblick von grossen Datensets zu erhalten und um diesen Prozess übersichtlich und strukturiert zu gestalten, haben wir spaltenbasierte und zeilenbasierte Aktionen grösstenteils separiert. 
 
 ## Spaltenbasierte Analyse
 Im Verzeichnis `dataWrangling` des `explorative-data-analysis` Repositories wurde Quellcode erstellt, um eine Einsicht über die zur Verfügung gestellten Spalten zu erhalten. Die drei verschiedenen Datensätze, welche uns im Verlauf der Challenge bereitgestellt wurden, sind bezüglich ihrer Spalten alle miteinander verwandt.  
-Der erste Datensatz (`data/immo_data_202208.csv`) beinhaltet mit 108 die kleinste Anzahl von Spalten. Sämtliche in der ersten Version enthaltenen Spalten finden sich in der zweiten Version (`data/immo_data_202208_v2.parquet`) wieder zusammen mit 26 neuen Spalten, was eine Gesamtanzahl von 134 ergibt. Die dritte (kaggle) Version der Daten enthält alle Spalten der Version zwei, ausser vier.  
+Der erste Datensatz (`data/immo_data_202208.csv`) beinhaltet mit 108 die kleinste Anzahl von Spalten. Sämtliche in der ersten Version enthaltenen Spalten finden sich in der zweiten Version (`data/immo_data_202208_v2.parquet`) wieder zusammen mit 26 neuen Spalten, was eine Gesamtanzahl von 134 ergibt. Die dritte (Kaggle) Version der Daten enthält alle Spalten der Version zwei, ausser vier.  
 
 Die Rohdaten befinden sich zu diesem Zeitpunkt nicht im _tidy-Format_, hauptsächlich weil nicht jede Spalte Daten zu genau einem Merkmal in einem durchgehenden Format beinhaltet. Die nachfolgende Tabelle zeigt auf, welche Merkmale aus welchen Spalten extrahiert werden können.  
 
-| Merkmal | zu finden in Spalten der Version 1 | zu finden in Spalten der Version 2 | zu finden in Spalten der kaggle Version |  
+| Merkmal | zu finden in Spalten der Version 1 | zu finden in Spalten der Version 2 | zu finden in Spalten der Kaggle Version |  
 | ------- | ---------------------------------- | ---------------------------------- | --------------------------------------- |
 | Verfügbarkeit | `Availability`, `Availability_merged`, `Disponibilità`, `Disponibilité`, `Verfügbarkeit`, `detail_responsive#available_from` | `Availability`, `Availability_merged`, `Disponibilità`, `Disponibilité`, `Verfügbarkeit`, `detail_responsive#available_from` | `Availability`, `Availability_merged`, `Disponibilità`, `Disponibilité`, `Verfügbarkeit`, `detail_responsive#available_from` |
 | Adresse | `Commune`, `Comune`, `Gemeinde`, `Municipality`, `Municipality_merged`, `detail_responvice#municipality`, `address`, `Locality`, `location`, `location_parsed`, `table`, `details_structured`, `zip` | `Commune`, `Comune`, `Gemeinde`, `Municipality`, `Municipality_merged`, `detail_responvice#municipality`, `address`, `address_s`, `Locality`, `location`, `location_parsed`, `table`, `details_structured`, `zip`, `plz`, `plz_parsed` | `Commune`, `Comune`, `Gemeinde`, `Municipality`, `Municipality_merged`, `detail_responvice#municipality`, `address`, `address_s`, `Locality`, `location`, `location_parsed`, `table`, `details_structured`, `zip`, `plz`, `plz_parsed` |
@@ -55,7 +55,7 @@ Die Adresse einer Immobilie kann jeweils weiter aufgeteilt werden in die Gemeind
 
 In Version zwei der Daten lesen wir die benötigten Informationen zusätzlich von der Spalte `address_s`, welche neu dazu gekommen ist und fügen die Resultate zusammen. Anders als in Version eins wird einfachheitshalber nun der Kanton von einer externen Ressource dazugelesen.  
 
-Die kaggle-Version der Daten liefert zuvor ungesehende Muster in den Daten, weshalb der Reguläre Ausdruck für die Postleitzahl leicht angepasst werden muss. Ansonsten können die Adressdaten gleich wie in Version zwei extrahiert werden. 
+Die Kaggle-Version der Daten liefert zuvor ungesehende Muster in den Daten, weshalb der Reguläre Ausdruck für die Postleitzahl leicht angepasst werden muss. Ansonsten können die Adressdaten gleich wie in Version zwei extrahiert werden. 
 
 #### Koordinaten
 Die Koordinaten werden für alle Versionen aus den Spalten `Longitude` und `Latitude` gelesen.
@@ -63,22 +63,22 @@ Die Koordinaten werden für alle Versionen aus den Spalten `Longitude` und `Lati
 #### Stockwerk
 Auf welchem Stockwerk sich eine Immobilie befindet (falls zutreffend) wird in Version eins von den Spalten `Floor_merged` und `detail_responsive#floor` gelesen.  
 
-In Version zwei und kaggle kommt eine neue Spalte `Floor` hinzu, welche als Grundlage verwendet wird. Fehlende Werte werden dann mit der selben Extraktion wie zuvor gefüllt. 
+In Version zwei und Kaggle kommt eine neue Spalte `Floor` hinzu, welche als Grundlage verwendet wird. Fehlende Werte werden dann mit der selben Extraktion wie zuvor gefüllt. 
 
 #### Nutzfläche
 Die Nutzfläche einer Immobilie extrahieren wir für die Version eins mit entsprechenden regulären Ausdrücken aus den Spalten `Floor_space_merged` und `detail_responsive#surface_usable`.  
 
-In Version zwei und kaggle kommt eine neue Spalte hinzu: `Floor space:`. Diese wird genutzt, um Lücken, die mit der Methode aus Version eins entstehen, zu füllen. 
+In Version zwei und Kaggle kommt eine neue Spalte hinzu: `Floor space:`. Diese wird genutzt, um Lücken, die mit der Methode aus Version eins entstehen, zu füllen. 
 
 #### Grundstücksfläche
 Ähnlich wie die Nutzfläche wird in Version eins der Daten die Grundstücksfläche aus den Spalten `Plot_area_merged` und `detail_responsive#surface_property` gelesen.  
 
-Die Versionen zwei und kaggle beinhalten zudem die Spalte `Land area:`, welche genutzt wird, um Lücken der bisherigen Methode zu füllen.
+Die Versionen zwei und Kaggle beinhalten zudem die Spalte `Land area:`, welche genutzt wird, um Lücken der bisherigen Methode zu füllen.
 
 #### Wohnfläche
 Anders als bei zuvor betrachtete Flächen, finden wir die grösste Menge an Daten für die Wohnfläche in einer Spalte namens `Space extracted` für die Version 1 der Daten.  
  
-In der zweiten Version der Daten wird die Spalte `Living_area_unified` beigefügt, welche die selben Informationen wie `Space extracted` beinhaltet. Daher können beide Spalten genutzt werden. In der kaggle Version der Daten beinhaltet aber weder `Living_area_unified` noch `Space extracted` den vollen Datensatz, weshalb fehlende Werte der einen Spalte mit den Daten der anderen Spalte gefüllt werden. 
+In der zweiten Version der Daten wird die Spalte `Living_area_unified` beigefügt, welche die selben Informationen wie `Space extracted` beinhaltet. Daher können beide Spalten genutzt werden. In der Kaggle Version der Daten beinhaltet aber weder `Living_area_unified` noch `Space extracted` den vollen Datensatz, weshalb fehlende Werte der einen Spalte mit den Daten der anderen Spalte gefüllt werden. 
 
 #### Bruttorendite
 Die Bruttorendite ist in allen Versionen nur sehr spährlich gefüllt, weshalb wir dieses Merkmal für unsere Modellierung ausschliessen. 
@@ -115,15 +115,15 @@ Diese Merkmale wurden bisher ebenfalls zusammengefasst. Sie stammen alle von der
 #### Preis
 Der Preis einer Immobilie wird in der Version eins und zwei der Daten bequem in der Spalte `price_cleaned` gefunden.  
 
-In der kaggle Version fehlt die Preisinformation, da diese durch unser bestes Modell geschätzt werden soll.
+In der Kaggle Version fehlt die Preisinformation, da diese durch unser bestes Modell geschätzt werden soll.
 
 #### Anzahl Zimmer
 In Version eins kann die grösste Menge an Informationen zur Anzahl Zimmer einer Immobilie aus der Spalte `details_structured` extrahiert werden.  
 
-Wo Informationen in dieser Spalte der Version zwei nicht vorhanden sind, können zusätzliche Daten aus `No. of rooms:` gelesen werden. Das selbe Vorgehen wird auch für den kaggle Datensatz angewendet.
+Wo Informationen in dieser Spalte der Version zwei nicht vorhanden sind, können zusätzliche Daten aus `No. of rooms:` gelesen werden. Das selbe Vorgehen wird auch für den Kaggle Datensatz angewendet.
 
 #### Art
-Die Art einer Immobilie ist in der Spalte `type` der Version eins verfügbar. In Version zwei werden Daten aus homegate.ch dazugelesen, wo die Art der Immobilie anders beschrieben und kategorisiert wird. Diese neuen Arten wurden auf die bisher bekannten Arten von immoscout24.ch zugeordnet und in der Spalte `type_unified` abgelegt. In der kaggle Version der Daten steht nur noch diese neue Spalte zur Verfügung. 
+Die Art einer Immobilie ist in der Spalte `type` der Version eins verfügbar. In Version zwei werden Daten aus homegate.ch dazugelesen, wo die Art der Immobilie anders beschrieben und kategorisiert wird. Diese neuen Arten wurden auf die bisher bekannten Arten von immoscout24.ch zugeordnet und in der Spalte `type_unified` abgelegt. In der Kaggle Version der Daten steht nur noch diese neue Spalte zur Verfügung. 
 
 #### Restliche Merkmale
 Die folgenden restlichen Merkmalen tauchen nur ab Version zwei und in einer Spalte auf und können deshalb direkt so übernommen werden:
@@ -150,7 +150,7 @@ Auch in der Version zwei der Daten finden wir die selben Vorkommnisse wie bereit
 ### Kaggle
 Aus dem Kaggle Datensatz können wir keine unwahrscheinlichen Observationen entfernen, da von dem Wettbewerb ein Datensatz mit Preisschätzungen für jede Zeile in dem zur Verfügung gestellten Datensatz verlangt wird. Falsch geschriebene Postleitzahlen kommen aber auch im Datensatz vor und diese korrigieren wir. Zudem gibt es ein Eintrag mit fehlender Gemeinde, diese konnten wir identifizieren und füllen. 
 
-## Explorative Daten Analyse
+## Explorative Datenanalyse
 Ein kompletter Bericht über die Zusammensetzung der Daten kann pro Version im Verzeichnis `eda` eingesehen werden. Nachfolgend haben wir die für uns wichtigsten Erkenntnisse daraus festgehalten. 
 
 ### Version 1
@@ -177,7 +177,7 @@ Der durchschnittliche Preis einer Immobilie im Datensatz liegt bei CHF 1.3 Milli
 
 
 ### Kaggle
-Die kaggle Version der Daten hat unverändert 132 Spalten und 24556 Zeilen. Die Anzahl Zeilen dürfen wir nicht verändern, aber die Spalten reduzieren wir auf 64. Auch hier sind die Merkmale der Umweltfaktoren, Koordinaten, Kanton, Gemeinde, Postleitzahlen und Gemeindemerkmale ausser der politischen Landschaft sind nach wie vor zu 100% gefüllt und die Verteilung der Arten von Immobilien ist nach wie vor sehr ungleichmässig:
+Die Kaggle Version der Daten hat unverändert 132 Spalten und 24556 Zeilen. Die Anzahl Zeilen dürfen wir nicht verändern, aber die Spalten reduzieren wir auf 64. Auch hier sind die Merkmale der Umweltfaktoren, Koordinaten, Kanton, Gemeinde, Postleitzahlen und Gemeindemerkmale ausser der politischen Landschaft sind nach wie vor zu 100% gefüllt und die Verteilung der Arten von Immobilien ist nach wie vor sehr ungleichmässig:
 
 ![](./img/type_distr3.png)  
 112 Observationen besitzen aber keine Art der Immobilie.  
@@ -188,7 +188,7 @@ Der Preis ist nicht vorhanden.
 
 ## Verwendung
 Sämtliche Notebooks im Verzeichnis `dataWrangling` können ohne Nebeneffekte ausgeführt werden. Sie liefern eine ausführliche Begründung für die weiter oben beschriebene Konsolidierung der Spalten. Für Version eins und zwei der Daten haben wir jeweils vier Notebooks erstellt. Das erste bietet eine Übersicht über die vorhandenen Spalten. In dem zweiten Notebook explorieren wir, welche Daten in Spalten wie `table` und `details` enthalten und extrahierbar sind. Das dritte Notebook behandelt dann jeweils sämtliche numerischen Merkmale und das vierte und letzte Notebook die qualitativen Merkmale.  
-Da der kaggle Datensatz der Version zwei sehr stark ähnelt haben wir nur eine verkürzte Begrüngung erstellt. 
+Da der Kaggle Datensatz der Version zwei sehr stark ähnelt haben wir nur eine verkürzte Begrüngung erstellt. 
 
 Im Verzeichnis `eda` befinden sich Notebooks und Skripts. Die unter `eda/utils` befindlichen `.py`-Dateien beinhalten jeweils Funktionen, welche die Daten gemäss der unter `dataWrangling` beschriebenen Analyse konsolidieren. Die Notebooks lesen die Daten zunächst ein und wenden anschliessend diese Funktionen auf die eingelesenen Daten an. Danach wird einen SweetViz-Report erstellt, welcher direkt im Notebook eingesehen werden kann. Er beinhaltet wertvolle Statistiken und Visualisierungen zu den bisher bearbeiteten Daten. Mit Hilfe von diesen Reports können noch bestehende Unschönheiten der Daten gefunden werden. Die so von uns gefundenen Probleme wurden jeweils in der Funktion `clean_rows()` festgehalten. Die letzten Zeilen und Zellen der Notebooks wenden diese Funktion dann auf die Daten an und speichern das Resultat im `data` Verzeichnis. 
 
