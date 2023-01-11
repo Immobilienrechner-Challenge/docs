@@ -128,41 +128,24 @@ Für die Klassifikation des Objekttyps von Immobilien gewichten wir weder die `P
 # Vergleich der Modelle
 Um klar identifizieren zu können, welches Modell wie gut performt, wird oft zunächst ein Null-Modell aufgestellt, welches als Klassifizierung einfach die Klasse angibt, welche am meisten vorkommt. Dieses Modell erzielt mit den hier eingesetzten Metriken jedoch keine brauchbaren Resultate, weshalb wir darauf verzichten.
 
-## Neural Network
-F1 weighted = 0.56  
-F1 micro = 0.63  
-F1 macro = 0.15
-MCC = 0.43  
-AUC = 0.7
+| Modell                         | Accuracy | F1 weighted | F1 micro | F1 macro | MCC  | AUC  |
+| ------------------------------ | -------- | ----------- | -------- | -------- | ---- | ---- |
+| Neural Network                 | 0.65     | 0.56        | 0.63     | 0.15     | 0.43 | 0.7  |
+| KNeigboursClassifier           | 0.59     | 0.52        | 0.6      | 0.29     | 0.29 | 0.57 |
+| Random Forest Classifier       | 0.66     | 0.59        | 0.62     | 0.28     | 0.38 | 0.56 |
+| HistGradientBoostingClassifier | 0.68     | 0.61        | 0.67     | 0.3      | 0.4  | 0.56 |
 
-Das Neuronale Netzwerk ist sehr biased aufgrund der vielen "flat" Einträge und deswegen fällt der Macro
-dementsprechend tief aus.  
+## Schlussfolgerung
+Das Neuronale Netzwerk ist sehr biased aufgrund der vielen "flat" Einträge und deswegen fällt der F1 macro dementsprechend tief aus.  
 Man sieht es in der Confusion Matrix wo die Diagonaleinträge mehr oder weniger
-nicht vorhanden sind.  
-Der MCC ist am höchsten was daraufhin deutet dass über alle Klassen hinweg die TP und TN  
-besser predicted worden sind, als im Vergleich zu den restlichen Modellen.
-Ausserdem ist der AUC am höchsten was schlussfolgern lässt, dass das Verhältnis zwischen  
-falschen und richtigen Vorhersagen in diesem Modell am besten abschneidet.  
-Das neuronale Netzwerk schneidet deswegen bei der Objecttype Classification am besten ab.
+nicht vorhanden sind:
 
-## KN Classifier
-F1 weighted = 0.52  
-F1 micro = 0.6  
-F1 macro = 0.29
-MCC = 0.29  
-AUC = 0.57
+![Confusion Matrix of Neural NEtwork model](img/confMatrixNN.png)
 
-## Random Forest Classifier
-F1 weighted = 0.59  
-F1 micro = 0.62  
-F1 macro = 0.28
-MCC = 0.38  
-AUC = 0.56
+Hier ist es aber wichtig, den Use-Case miteinzuberechnen. Das Neuronale Netzwerk klassifiziert am besten, wenn man den AUC Score verwenden will. Jedoch führt das dazu, dass die meisten Datensätze als "flat" oder "detached House" klassifiziert wird. Das Modell sagt nur selten andere Klassen vor. 
 
-## HistGradientBoostClassifier
-F1 weighted = 0.61  
-F1 micro = 0.67  
-F1 macro = 0.3
-MCC = 0.4  
-AUC = 0.56
+Falls man jedoch will, dass die anderen Klassen auf Kosten von "flat" und "detached House" öfters vorgeschlagen werden, nehmen wir das Modell mit dem besten F1 macro score: HistGradientBoostingClassifier. Der HistGradientBoostingClassifier hat auch die beste Accuracy von allen Modellen. Hier sieht die Confusion Matrix dieses Modells:
 
+![Confusion Matrix of HistGradientBoostingRegressor](img/confMatrixHGBC.png)
+
+Ohne genaueren Kontext oder Anwendungsfall können wir keine Empfehlung machen, welches Modell das bessere ist. In den meisten Fällen können wir aber das HistGradientBoostingClassifier Modell empfehlen.
