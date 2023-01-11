@@ -89,9 +89,9 @@ Hier in diesem Abschnitt importieren wir die Immobilien Daten, die uns Fernando 
 
 Hier in diesem Abschnitt schauen wir uns die Spalten genauer an und entscheiden daraufhin, welche Feature wir fuer unser simples lineares Regressions Modell verwenden wollen.
 
-![png](_generated-reports/Markdown/2.1%20Einfache%20Lineare%20Regression/output_6_0.png)
+![png](property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_6_0.png)
 
-![png](_generated-reports/Markdown/2.1%20Einfache%20Lineare%20Regression/output_7_0.png)
+![png](property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_7_0.png)
 
 Wir entscheiden uns fuer das Feature space_extracted und als Target price_cleaned.  
 Floor_space_merged wird fuer das lineare Regressionsmodell nicht verwendet, da ueber 10000 Fehlende Werte im Feature vorhanden sind. Dies erkennen wir einerseits im Barplot und andererseits in der Heatmap Visualisierung. 
@@ -156,20 +156,20 @@ Wir plotten die Verteilung von space_extracted und price_cleaned um zu sehen, wi
 
 ## Verteilung von space_extracted & price_cleaned
 
-![png](_generated-reports/Markdown/2.1%20Einfache%20Lineare%20Regression/output_13_0.png)
+![png](property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_13_0.png)
 
 Wir erkennen in beiden Verteilungsplot, dass space_extraced und price_cleaned nicht normalverteilt sind. Es sieht aus, wie eine Rechtsschiefe Verteilung. Es gibt einige Werte bei Space_extraced und price_cleaned die sehr hoch sind und somit die Verteilung beeinflussen.
 Mittels geeigneter Transformationen durch sqrt oder log, koennen wir die Verteilung der Daten veraendern. Der Grund, warum wir die Transformationen durchfuehren basiert auf den Bedinungen der Residuenanalyse, die im naechsten Abschnitt behandelt wird.
 
 ## Verteilung von sqrt_space_extracted & sqrt_price_cleaned
   
-![png](_generated-reports/Markdown/2.1%20Einfache%20Lineare%20Regression/output_16_0.png)
+![png](property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_16_0.png)
 
 Durch die Wurzel Transformation erhalten wir fuer spaec_extracted und price_cleaned eine annaehrend normalverteilte Verteilung.
 
 ## Verteilung von log_space_extracted & log_price_cleaned
 
-![png](_generated-reports/Markdown/2.1%20Einfache%20Lineare%20Regression/output_19_0.png)
+![png](property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_19_0.png)
 
 Analog zur Wurzel Transformation, erhalten wir durch den log Transformation eine annaehrend normalverteilte Verteilung fuer space_extracted und price_cleaned.
 
@@ -180,9 +180,9 @@ Analog zur Wurzel Transformation, erhalten wir durch den log Transformation eine
 ---
 # Modell 1 - Linear Regression mit space extracted & price_cleaned
 
-![png](_generated-reports/Markdown/2.1%20Einfache%20Lineare%20Regression/output_25_0.png)
+![png](property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_25_0.png)
 
-![png](_generated-reports/Markdown/2.1%20Einfache%20Lineare%20Regression/output_25_1.png)
+![png](property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_25_1.png)
 
 ## Modell 1 - Resultate und Interpretation
 
@@ -201,9 +201,9 @@ Durch Transformationen von der x-Achse oder y-Achse koennen wir ueberpruefen, ob
 ---
 # Modell 2 - Linear Regression mit sqrt_space_extracted & price_cleaned
 
-![png](_generated-reports/Markdown/2.1%20Einfache%20Lineare%20Regression/output_28_0.png)
+![png](property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_28_0.png)
 
-![png](_generated-reports/Markdown/2.1%20Einfache%20Lineare%20Regression/output_28_1.png) 
+![png](property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_28_1.png) 
 
 ## Modell 2 - Resultate und Interpretation
 
@@ -223,9 +223,9 @@ Im naechsten Abschnitt nehmen wir die Transformation von price_cleaned vor und s
 # Modell 3 - Linear Regression mit pace_extracted & sqrt_price_cleaned
 
     
-![png](_generated-reports/Markdown/2.1%20Einfache%20Lineare%20Regression/output_31_0.png)
+![png](property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_31_0.png)
  
-![png](_generated-reports/Markdown/2.1%20Einfache%20Lineare%20Regression/output_31_1.png)
+![png](property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_31_1.png)
 
 ## Modell 3 - Resultate und Interpretation
 
@@ -242,9 +242,9 @@ Ein nun interessantes Modell ist das Modell 4, welches wir dann beide Achsen mit
 ---
 # Modell 4 - Lineare Regression mit sqrt_space_extracted & sqrt_price_cleaned
  
-![png](_generated-reports/Markdown/2.1%20Einfache%20Lineare%20Regression/output_34_0.png)
+![png](property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_34_0.png)
 
-![png](_generated-reports/Markdown/2.1%20Einfache%20Lineare%20Regression/output_34_1.png)
+![png](property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_34_1.png)
 
 ## Modell 4 - Resultate und Interpretation
 
@@ -262,9 +262,9 @@ Aufgrund der Residuenanalyse erkennen wir, dass die Annahmen des linearen Regres
 ---
 # Modell 5 - Lineare Regression mit log_space_extracted & price_cleaned
  
-![png](_generated-reports/Markdown/2.1%20Einfache%20Lineare%20Regression/output_37_0.png)
+![png](property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_37_0.png)
  
-![png](_generated-reports/Markdown/2.1%20Einfache%20Lineare%20Regression/output_37_1.png)
+![png](property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_37_1.png)
 
 ## Modell 5 - Resultate und Interpretation
 
@@ -284,9 +284,9 @@ Vollstaendigkeitshalber transformieren wir in naechsten Abschnitt nur die Target
 
 # Modell 6 - Lineare Regression mit space_extracted & log_price_cleaned
 
-![png](_generated-reports/Markdown/2.1%20Einfache%20Lineare%20Regression/output_40_0.png)
+![png](property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_40_0.png)
  
-![png](_generated-reports/Markdown/2.1%20Einfache%20Lineare%20Regression/output_40_1.png)
+![png](property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_40_1.png)
 
 ## Modell 6 - Resultate und Interpretation
 
@@ -303,9 +303,9 @@ Im naechsten Abschnitt befassen wir uns mit der logarithmischen Transformation b
 ---
 # Modell 7 - Lineare Regression mit log_space_extracted & log_price_cleaned
  
-![png](_generated-reports/Markdown/2.1%20Einfache%20Lineare%20Regression/output_43_0.png)
+![png](property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_43_0.png)
   
-![png](_generated-reports/Markdown/2.1%20Einfache%20Lineare%20Regression/output_43_1.png)
+![png](property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_43_1.png)
 
 ## Modell 7 - Resultate und Interpretation
 
@@ -327,9 +327,9 @@ Aus diesem Grund werden wir nun uns weiter mit dem Modell 7 befassen und versuch
 
 Damit wir den MAPE weiter senken koennen, entfernen wir nun die Ausreisser, die wir im Streudiagramm erkennen konnten. Wir entfernen die Ausreisser, indem wir die Datenpunkte entfernen, die bei der Logarithmischen Transformation einen groesseren oder kleineren Wert als 3 Sigma haben. 
  
-![png](_generated-reports/Markdown/2.1%20Einfache%20Lineare%20Regression/output_46_0.png)
+![png](property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_46_0.png)
 
-![png](_generated-reports/Markdown/2.1%20Einfache%20Lineare%20Regression/output_46_1.png)
+![png](property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_46_1.png)
 
 <div>
 <style scoped>
@@ -388,9 +388,9 @@ Damit wir den MAPE weiter senken koennen, entfernen wir nun die Ausreisser, die 
 
 # Modell 7.1 - Lineare Regression mit log_space_extracted & log_price_cleaned ohne Ausreisser
 
-![png](_generated-reports/Markdown/2.1%20Einfache%20Lineare%20Regression/output_48_0.png)
+![png](property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_48_0.png)
  
-![png](_generated-reports/Markdown/2.1%20Einfache%20Lineare%20Regression/output_48_1.png)
+![png](property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_48_1.png)
 
 ## Modell 7.1 - Resultate und Interpretation
 
