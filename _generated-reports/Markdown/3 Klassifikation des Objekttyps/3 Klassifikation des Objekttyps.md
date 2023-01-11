@@ -8,15 +8,16 @@ Die Fehlerrate ist eine einfache und häufig verwendete Metrik zur Quantifizieru
 
 $$  
 \frac{1}{n}\sum_{i=1}^{n}I\left(y_i\neq\widehat{y_i}\right)  
-$$
+$$ 
 
 Wobei $I(y_i\neq\widehat{y_i})$ eine Dummy Variable ist, die den Wert $1$ annimmt, wenn die Bedingung erfüllt ist und $0$ wenn nicht.  
 Angenommen es wird in einem Umfeld klassifiziert, in welchem nur eine sehr kleine Anzahl der Observationen von der Standardklasse abweichen, zum Beispiel 2%, dann würde die Fehlerrate beim Einsatz des einfachsten Modells, welches nur die Standardklasse (die am häufigsten vorkommende Klasse des Datensatzes) zuweist, sehr klein sein (2%). Aus diesem Grund wurden weitere Metriken definiert, welche alle die Konfusionsmatrix als Grundlage verwenden.
 
 ## Konfusionsmatrix
 Eine Konfusionsmatrix erhält man, wenn auf einer Achse die echten Klassen und auf der anderen die durch ein Modell bestimmte (vorhergesagte) Klassen gezeigt werden:
+
 |                      | POSITIV (ECHT)  | NEGATIV (ECHT)  |
-| -------------------- | --------------- | --------------- | 
+| -------------------- | --------------- | --------------- |
 | POSITIV (VORHERSAGE) | Richtig Positiv | Falsch Negativ  |
 | NEGATIV (VORHERSAGE) | Falsch Positiv  | Richtig Negativ |
 
@@ -117,7 +118,7 @@ Wobei $r_i$ der Anzahl Observationen in der $i$-ten Klasse entspricht.
 ## ROC-Curve
 Die Precision kann durch Anpassung der Entscheidungsschwelle, welche normalerweise bei $0.5$ liegt, erhöht werden. Wie bereits erwähnt wirkt sich das in der Regel direkt negativ auf den `Recall` aus. Diese Beziehung kann mit einer `ROC` (Receiver Operating Characteristic) Kurve dargestellt werden. Dazu wird das Verhältnis zwischen den falsch positiven und richtig positiven Klassifikationen zu allen möglichen Schwellwerten dargestellt:  
 
-![ROC Curve](img/roc_curve.png)
+![ROC Curve](roc_curve.png)
 
 Idealerweise sieht die Kurve aus wie in diesem Beispiel: Sie nähert sich an die obere, linke Ecke an. Das bedeutet, dass das Verhältnis von richtig positiven Klassifikationen hoch ist im Verhältnis zu den falsch positiven Klassifikationen. 
 
@@ -142,13 +143,13 @@ Das Neuronale Netzwerk ist sehr biased aufgrund der vielen "flat" Einträge und 
 Man sieht es in der Confusion Matrix wo die Diagonaleinträge mehr oder weniger
 nicht vorhanden sind:
 
-![Confusion Matrix of Neural NEtwork model](img/confMatrixNN.png)
+![Confusion Matrix of Neural NEtwork model](confMatrixNN.png)
 
 Hier ist es aber wichtig, den Use-Case miteinzuberechnen. Das Neuronale Netzwerk klassifiziert am besten, wenn man den AUC Score verwenden will. Jedoch führt das dazu, dass die meisten Datensätze als "flat" oder "detached House" klassifiziert wird. Das Modell sagt nur selten andere Klassen vor. 
 
 Falls man jedoch will, dass die anderen Klassen auf Kosten von "flat" und "detached House" öfters vorgeschlagen werden, nehmen wir das Modell mit dem besten F1 macro score: HistGradientBoostingClassifier. Der HistGradientBoostingClassifier hat auch die beste Accuracy von allen Modellen. Hier sieht die Confusion Matrix dieses Modells:
 
-![Confusion Matrix of HistGradientBoostingRegressor](img/confMatrixHGBC.png)
+![Confusion Matrix of HistGradientBoostingRegressor](confMatrixHGBC.png)
 
 Ohne genaueren Kontext oder Anwendungsfall können wir keine Empfehlung machen, welches Modell das bessere ist. In den meisten Fällen können wir aber eher das HistGradientBoostingClassifier Modell empfehlen.
 
