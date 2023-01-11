@@ -16,72 +16,9 @@ Notebook und daraus erstellter Bericht (ohne Code) als pdf.
 
 ---
 
-# Module importieren
+# Pipeline
 
-Hier in diesem Abschnitt importieren wir die wichtigisten Module, die wir für die weitere Bearbeitung unserer simplen linearen Regressions Modelle benötigen, um die Vorhersage des Immobilienpreises zu erstellen.
---- 
-
-# Daten importieren
-
-Hier in diesem Abschnitt importieren wir die Immobilien Daten, die uns Fernando zur Verfügung gestellt hat.
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Floor_space_merged</th>
-      <th>Space extracted</th>
-      <th>price_cleaned</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>None</td>
-      <td>100.0</td>
-      <td>1150000.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>242 m²</td>
-      <td>156.0</td>
-      <td>1420000.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>None</td>
-      <td>NaN</td>
-      <td>720000.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>257 m²</td>
-      <td>154.0</td>
-      <td>1430000.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>None</td>
-      <td>142.0</td>
-      <td>995000.0</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+Zuerst werden die Daten eingelesen. Mehr informationen dazu sind im Jupyter Notebook vorhanden.
 
 ---
 
@@ -89,70 +26,19 @@ Hier in diesem Abschnitt importieren wir die Immobilien Daten, die uns Fernando 
 
 Hier in diesem Abschnitt schauen wir uns die Spalten genauer an und entscheiden daraufhin, welche Feature wir fuer unser simples lineares Regressions Modell verwenden wollen.
 
-![png](output_6_0.png)
-
 ![png](output_7_0.png)
 
-Wir entscheiden uns fuer das Feature space_extracted und als Target price_cleaned.  
-Floor_space_merged wird fuer das lineare Regressionsmodell nicht verwendet, da ueber 10000 Fehlende Werte im Feature vorhanden sind. Dies erkennen wir einerseits im Barplot und andererseits in der Heatmap Visualisierung. 
+Die Fläche in Beige representiert nicht vorhandene Werte (NA's). Die schwarze Fläche representiert vorhandene Werte.
+
+![png](output_6_0.png)
+Wir entscheiden uns für das Feature space_extracted und als Target price_cleaned.  
+Floor_space_merged wird für das lineare Regressionsmodell nicht verwendet, da über 10000 fehlende Werte im Feature vorhanden sind. Dies erkennen wir einerseits am Barplot und andererseits an der Heatmap. 
 
 ---
 
 # Verteilungen
 
 Wir plotten die Verteilung von space_extracted und price_cleaned um zu sehen, wie die Verteilung der Daten vorliegt.
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>price_cleaned</th>
-      <th>Space extracted</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1150000.0</td>
-      <td>100.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>1420000.0</td>
-      <td>156.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>1430000.0</td>
-      <td>154.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>995000.0</td>
-      <td>142.0</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>2160000.0</td>
-      <td>190.0</td>
-    </tr>
-  </tbody>
-</table>
-</div>
 
 ## Verteilung von space_extracted & price_cleaned
 
@@ -330,59 +216,6 @@ Damit wir den MAPE weiter senken koennen, entfernen wir nun die Ausreisser, die 
 ![png](output_46_0.png)
 
 ![png](output_46_1.png)
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Space_extracted</th>
-      <th>price_cleaned</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1150000.0</td>
-      <td>100.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>1420000.0</td>
-      <td>156.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>1430000.0</td>
-      <td>154.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>995000.0</td>
-      <td>142.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>2160000.0</td>
-      <td>190.0</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
 
 ---
 
