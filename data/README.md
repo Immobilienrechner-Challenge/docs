@@ -2,7 +2,7 @@
 In unserem "data" Repository speichern wir alle Datensätze ab, welche wir für diese Challenge bekommen haben, oder selbst erstellt haben.
 
 ## Originale Datensätze
-Folgende Datensätzre haben wir von unserem Dozent @fbenites erhalten. 
+Folgende Datensätze haben wir von unserem Dozent @fbenites erhalten. 
 | Dateiname                   | Beschreibung                                                                                                              |
 | --------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
 | immo_data_202208.csv        | Erster erhaltener Datensatz.                                                                                              |
@@ -36,3 +36,4 @@ Hier sind weitere Datensätze aufgelistet.
 | Dateiname                  | Beschreibung                                                                                          |
 | -------------------------- | ----------------------------------------------------------------------------------------------------- |
 | plz_verzeichnis_v2.geojson | Datensatz der Post zu den Postleitzahlen in der Schweiz inkl. geometrische Formen jeder Postleitzahl. |
+| plz.xlsx                   | Datensatz von postleitzahlenschweiz.ch, um vorhandene Postleitzahlen und Gemeindenamen zu validieren. |
