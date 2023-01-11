@@ -204,88 +204,19 @@ Dies ist unser bestes Modell. Mit Histgradientboosting Regression mittels Log Tr
 Hier werden die Modelle miteinander verglichen und tabellerisch sowie visualisiert dargestellt.
 Dabei dient das Modell 1 - Multiple Linear Model, als Benchmark.
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Model</th>
-      <th>MAPE</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>10</th>
-      <td>HistGradientBoosting Regression with NA</td>
-      <td>0.233239</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>HistGradientBoosting Regression</td>
-      <td>0.260161</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>XGBoost Regression</td>
-      <td>0.304185</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>GradientBoosting Regression</td>
-      <td>0.319968</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>RandomForest Regression</td>
-      <td>0.327054</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>KNeighbors Regression</td>
-      <td>0.382445</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>DecisionTree Regression</td>
-      <td>0.418579</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Ridge Regression</td>
-      <td>0.500405</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Lasso Regression</td>
-      <td>0.505737</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>ElasticNet Regression</td>
-      <td>0.505737</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>Multiple Linear Regression</td>
-      <td>3187350940.207475</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
+| Model                                   | MAPE          |
+| --------------------------------------- | ------------- |
+| HistGradientBoosting Regression with NA | 0.233239      |
+| HistGradientBoosting Regression         | 0.260161      |
+| XGBoost Regression                      | 0.304185      |
+| GradientBoosting Regression             | 0.319968      |
+| RandomForest Regression                 | 0.327054      |
+| KNeighbors Regression                   | 0.382445      |
+| DecisionTree Regression                 | 0.418579      |
+| Ridge Regression                        | 0.500405      |
+| Lasso Regression                        | 0.505737      |
+| ElasticNet Regression                   | 0.505737      |
+| Multiple Linear Regression              | 3187350940.20 |
 
 ![png](output_74_1.png)
 
