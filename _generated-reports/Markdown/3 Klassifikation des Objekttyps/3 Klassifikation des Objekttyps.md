@@ -1,4 +1,4 @@
-# classification-objecttype
+# 3 Klassifikation des Objekttyps
 Mit den Modellen in diesem Repository versuchen wir, anhand der uns gegebenen Informationen den Immobilientyp zu bestimmen.
 
 # Metriken zur Bewertung eines Klassifikationsmodells
