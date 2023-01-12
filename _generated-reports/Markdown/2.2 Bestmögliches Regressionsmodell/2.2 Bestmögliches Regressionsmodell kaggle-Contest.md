@@ -18,7 +18,7 @@ Um unsere Daten auf die Modelle vorzubereiten wurden die wichtigsten Module impo
 ---
 # Modell 1 - Multiple Lineare Model
 Modell 1 ist ein multiples lineares Modell, welches wir als Benchmark für die weiteren Modelle verwenden werden. Wir haben uns für dieses Modell entschieden, da es ein einfaches Modell ist, welches wir schnell erstellen können und es uns ermöglicht, die Vorhersage des Preises zu erstellen.
-Das Multiple Lineare Regression ist ein statistisches Modell, das verwendet wird, um die Beziehung zwischen einer abhängigen und einer oder mehreren unabhängigen Variablen zu beschreiben. Es geht davon aus, dass die Beziehung zwischen den Variablen linear ist und dass die Zufallsfehler normalverteilt sind.
+Die multiple lineare Regression ist ein statistisches Modell, das verwendet wird, um die Beziehung zwischen einer abhängigen und einer oder mehreren unabhängigen Variablen zu beschreiben. Es geht davon aus, dass die Beziehung zwischen den Variablen linear ist und dass die Zufallsfehler normalverteilt sind.
 
     Fitting 5 folds for each of 4 candidates, totalling 20 fits
     Best params: {'fit_intercept': False, 'positive': True}
@@ -34,7 +34,7 @@ Man erkennt in unserem Plot, dass das multiple Lineare Regressionsmodell die Wer
 
 ---
 # Modell 2 - Lasso Regression
-Modell 2 ist ein multiples lineares Lasso Modell. Die Lasso Regression ist eine Art von Regression, die eine Regularisierungstechnik namens L1-Regularisierung verwendet. Diese Technik fügt dem konventionellen Fehlerterm einen Penalties-Term hinzu, der die Summe der absoluten Werte der Regressionskoeffizienten minimiert. Lasso Regression kann verwendet werden, um automatisch unbedeutende Variablen auszuschließen und die Modellkomplexität zu reduzieren.
+Modell 2 ist ein multiples lineares Lasso Modell. Die Lasso Regression ist eine Art von Regression, die eine Regularisierungstechnik namens L1-Regularisierung verwendet. Diese Technik fügt dem konventionellen Fehlerterm einen Penalty-Term hinzu, der die Summe der absoluten Werte der Regressionskoeffizienten minimiert. Lasso Regression kann verwendet werden, um automatisch unbedeutende Variablen auszuschließen und die Modellkomplexität zu reduzieren.
 
     Fitting 5 folds for each of 800 candidates, totalling 4000 fits
     Best parameters: {'alpha': 100000.0, 'fit_intercept': True, 'max_iter': 100, 'positive': False, 'random_state': 42, 'selection': 'cyclic'}
@@ -42,7 +42,7 @@ Modell 2 ist ein multiples lineares Lasso Modell. Die Lasso Regression ist eine 
 
 ![png](output_23_1.png)
 
-Wir erkennen im Plot eine deutliche Verbesserung mittels Lasso Regression, verglichen zum mulitplen Linearen modell. Auch die MAPE Metrik ist deutlich gesunken auf 0.5. Da bei der Lasso Regression Features bestraft werden, die keinen Beitrag zur vorhersage des Haus Preises haben, können wir hier uns schon die ersten wichtigen Features herausextrahieren. Sprich Features die keinen Koeffizienten Wert von 0 afuweisen in unserem Modell. 
+Wir erkennen im Plot eine deutliche Verbesserung mittels Lasso Regression, verglichen zum mulitplen linearen Modell. Auch die MAPE Metrik ist deutlich gesunken auf 0.5. Da bei der Lasso Regression Features bestraft werden, die keinen Beitrag zur vorhersage des Haus Preises haben, können wir hier uns schon die ersten wichtigen Features herausextrahieren. Sprich Features die keinen Koeffizienten Wert von 0 afuweisen in unserem Modell. 
 
 ## Untersuchung der Variable Importance Modell 2
 
@@ -56,7 +56,7 @@ Hier sehen wir, dass unseres neues Modell mit weniger Features einen identischen
 
 ---
 # Modell 3 - Ridge Regression
-Modell 3 ist ein multiples lineares Ridge Modell. Die Ridge Regression ist eine weitere Art von Regression, die eine Regularisierungstechnik namens L2-Regularisierung verwendet. Diese Technik fügt dem konventionellen Fehlerterm einen Penalties-Term hinzu, der die Summe der Quadrate der Regressionskoeffizienten minimiert. Ridge Regression kann verwendet werden, um Probleme der Überanpassung (overfitting) zu vermeiden und die Robustheit des Modells zu verbessern.
+Modell 3 ist ein multiples lineares Ridge Modell. Die Ridge Regression ist eine weitere Art von Regression, die eine Regularisierungstechnik namens L2-Regularisierung verwendet. Diese Technik fügt dem konventionellen Fehlerterm einen Penalty-Term hinzu, der die Summe der Quadrate der Regressionskoeffizienten minimiert. Ridge Regression kann verwendet werden, um Probleme der Überanpassung (overfitting) zu vermeiden und die Robustheit des Modells zu verbessern.
 
     Fitting 5 folds for each of 400 candidates, totalling 2000 fits
     Best parameters: {'alpha': 10000.0, 'fit_intercept': True, 'max_iter': 100, 'positive': False, 'random_state': 42}
@@ -64,7 +64,7 @@ Modell 3 ist ein multiples lineares Ridge Modell. Die Ridge Regression ist eine 
 
 ![png](output_31_1.png)
 
-Wir schauen uns nun das Ridge Regression Modell an uns erkennen, das auch hier die roten Punkte sich deutlich besser auf der blauen Linie liegen als beim multiplen Linearen Modell. Entsprechend ist auch der MAPE deutlich tiefer. Sowohl beim Lasso als auch bei der Ridge Regression können wir sagen, das sich der MAPE Score ähnlich sind und gleich gute Resultate liefert. Da ein MAPE von ca. 50% uns nicht genügt, verwenden wir weitere Modelle, um unsere vorhersage über den Immobilienpreis zu verbessern.
+Wir schauen uns nun das Ridge Regression Modell an und erkennen, das auch hier die roten Punkte sich deutlich besser auf der blauen Linie liegen als beim multiplen Linearen Modell. Entsprechend ist auch der MAPE deutlich tiefer. Sowohl beim Lasso als auch bei der Ridge Regression können wir sagen, das sich der MAPE Score ähnlich sind und gleich gute Resultate liefert. Da ein MAPE von ca. 50% uns nicht genügt, verwenden wir weitere Modelle, um unsere vorhersage über den Immobilienpreis zu verbessern.
 
 ---
 # Modell 4 - Elastic Net Regression
@@ -75,7 +75,7 @@ Modell 4 ist ein multiples lineares Elastic Net Modell. Das Elastic Net Regressi
 
 ![png](output_34_1.png)
 
-Bei der Elastic Net Regression erkennen wir keinen weitere Verbesserung des MAPE Scores. Wir testen nun weitere Modelle in unserem Datensatz aus.
+Bei der Elastic Net Regression erkennen wir keinen weitere Verbesserung des MAPE Scores. Wir testen nun weitere Modelle mit unserem Datensatz.
 
 ---
 # Modell 5 - KNN Regression
@@ -90,7 +90,7 @@ Es ist sehr interessant zu sehen, dass die KNN Regression eine deutliche Verbess
 
 ---
 # Modell 6 - Decision Tree Regression
-Modell 6 ist ein Decision Tree Modell. Das Decision Tree Regression ist ein Modell, das auf Entscheidungsbaum-Algorithmen basiert. Es ermöglicht es, eine Vorhersage anhand von Entscheidungen zu treffen, die anhand von Input-Variablen getroffen werden. Der Entscheidungsbaum besteht aus Knoten und Kanten, wobei jeder Knoten eine Entscheidung darstellt und die Kanten die möglichen Ergebnisse dieser Entscheidungen darstellen.
+Modell 6 ist ein Decision Tree Modell. Die Decision Tree Regression ist ein Modell, das auf Entscheidungsbaum-Algorithmen basiert. Es ermöglicht ihm, eine Vorhersage anhand von Entscheidungen zu treffen, die anhand von Input-Variablen getroffen werden. Der Entscheidungsbaum besteht aus Knoten und Kanten, wobei jeder Knoten eine Entscheidung darstellt und die Kanten die möglichen Ergebnisse dieser Entscheidungen darstellen.
 
     Fitting 5 folds for each of 24 candidates, totalling 120 fits
     Best parameters: {'criterion': 'absolute_error', 'max_depth': None, 'max_features': None, 'min_samples_leaf': 1, 'min_samples_split': 2, 'random_state': 42, 'splitter': 'best'}
@@ -128,7 +128,7 @@ Modell 7 ist ein Random Forest Modell. Random Forest Regression ist ein Ensemble
 
 ![png](output_52_0.png)
 
-Analog wie beim Modell 6 sehen wir, dass living_space das wichtigste Feature im Modell ist, um unseren Immobilienpreis vorhersagen zu koennen. Wir erstellen im nächsten Schritt das gleiche Modell, einfach nur mit den wichtigsten Features. Erwartungsgemäss versclechtert sich der MAPE einwenig.
+Analog wie beim Modell 6 sehen wir, dass living_space das wichtigste Feature im Modell ist, um unseren Immobilienpreis vorhersagen zu können. Wir erstellen im nächsten Schritt das gleiche Modell, einfach nur mit den wichtigsten Features. Erwartungsgemäss versclechtert sich der MAPE ein wenig.
 
     Fitting 4 folds for each of 1 candidates, totalling 4 fits
     Best parameters: {'max_depth': None, 'max_features': None, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 100, 'random_state': 42}
@@ -151,20 +151,20 @@ Lasso Features:
 
 ![png](output_59_1.png)
 
-Wie wir durch unsere Modelle und Plots zeigen konnte, koennen wir durchaus unsere Modelle vereinfachen indem wir nur die wichtigsten Features aus unserem Datensatz nehmen und unser Modell entsprechen trainieren und validieren. 
+Wie wir durch unsere Modelle und Plots zeigen konnte, können wir durchaus unsere Modelle vereinfachen indem wir nur die wichtigsten Features aus unserem Datensatz nehmen und unser Modell entsprechen trainieren und validieren. 
 
-Ein Interessante Beobachtung ist, dass alle wichtigen Features von Lasso, Decision Tree und Random Forest Tree zu fast gleichen MAPE Score führt. Durch die Selektion der wichtigsten Features, koennen wir unsere Modelle vereinfachen und die Performance verbessern.
+Ein Interessante Beobachtung ist, dass alle wichtigen Features von Lasso, Decision Tree und Random Forest Tree zu fast gleichen MAPE Score führt. Durch die Selektion der wichtigsten Features, können wir unsere Modelle vereinfachen und die Performance verbessern.
 
 ---
 # Modell 8 - Gradient Boosting Regression
-Modell 8 ist ein Gradient Boosting Modell. Gradient Boosting Regression ist ein weiteres Ensemble-Modell, das auf Gradient Boosting-Algorithmen basiert. Es erstellt mehrere schwache Modelle und fügt sie dann schrittweise zu einem stärkeren Modell zusammen, indem es auf Fehler des vorherigen Modells fokussiert. GBR ist ein sehr mächtiges Modell, aber es kann leicht zu überanpassen(overfitting) führen, falls nicht sorgfältig reguliert wird.
+Modell 8 ist ein Gradient Boosting Modell. Gradient Boosting Regression ist ein weiteres Ensemble-Modell, das auf Gradient Boosting-Algorithmen basiert. Es erstellt mehrere schwache Modelle und fügt sie dann schrittweise zu einem stärkeren Modell zusammen, indem es sich auf Fehler des vorherigen Modells fokussiert. GBR ist ein sehr mächtiges Modell, aber es kann leicht zu Überanpassung (overfitting) führen, falls nicht sorgfältig reguliert wird.
 
     Fitting 5 folds for each of 1 candidates, totalling 5 fits
     Best parameters: {'learning_rate': 0.1, 'max_depth': 12, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 100, 'random_state': 42}
 
 ![png](output_62_1.png)
 
-Der Gardient Boosting Regressor liefert und ein ähnlichen MAPE Score, wie unser Random Forest Modell. Beide MAPE Score liegen im Bereich von 0.32.
+Der Gardient Boosting Regressor liefert uns einen ähnlichen MAPE Score wie unser Random Forest Modell. Beide MAPE Scores liegen im Bereich von 0.32.
 
 ---
 # Modell 9 - XGBoost Regression
@@ -186,7 +186,7 @@ Modell 10 ist ein Histgradientboosting Modell. HistGradientBoosting Regression i
 
 ![png](output_68_1.png)
 
-Mit dem Histgradientboosting Regression brechen wir unter der Marke von einem MAPE Score von 0.3. Mit dem Histgradientboositing Regression können wir nun einen MAPE Score von 0.26 liefern, was deutlich besser ist als alle unseren andere Modelle. Da der HistgradientboostingRegression auch mit NA Werten umgehen kann, werden wir dies im nächsten Abschnitt durchführen und schauen uns den MAPE Score wieder an.
+Mit dem Histgradientboosting Regression brechen wir unter die Marke von einem MAPE Score von 0.3. Mit dem Histgradientboositing Regression können wir nun einen MAPE Score von 0.26 liefern, was deutlich besser ist als alle unsere anderen Modelle. Da die HistgradientboostingRegression auch mit NA Werten umgehen kann, werden wir dies im nächsten Abschnitt durchführen und schauen uns den MAPE Score wieder an.
 
 ---
 # Modell 11 - Histgradientboosting Regression (log transformation) with NA
@@ -201,7 +201,7 @@ Dies ist unser bestes Modell. Mit Histgradientboosting Regression mittels Log Tr
 
 ---
 # Vergleiche der Modelle
-Hier werden die Modelle miteinander verglichen und tabellerisch sowie visualisiert dargestellt.
+Hier werden die Modelle miteinander verglichen und tabellarisch sowie visuell dargestellt.
 Dabei dient das Modell 1 - Multiple Linear Model, als Benchmark.
 
 | Model                                   | MAPE          |
@@ -220,15 +220,15 @@ Dabei dient das Modell 1 - Multiple Linear Model, als Benchmark.
 
 ![png](output_74_1.png)
 
-Wir erkennen im Barplot deutlich, das alle Modelle besser sind als die multiple lineare Regression. Schon unser zweites Modell, das Lasso Modell schlägt unser Benchmark um das vielfache. Das beste Modell, welches wir für unsere Preisvorhersage nutzen ist die HistGradientBoostingRegression. Dicht gefolgt wird diese durch das gleiche Modell, jedoch ohne mit der Eigenschaft, mit NA Werten umgehen zu koennen. Bei beiden HistGradientBoosting Modellen transformieren wir die Target Variabel. Auf dem dritten Platz befindet sich das XGBoost Modell. Alle drei Modelle liefern uns einen sehr guten MAPE Score bei unseren Validierungsdatensatze. Auf Kaggle haben wir unterschiedliche Submission gemacht und auch hier, analog zum Testdatensatz, liefert die HistGradientBoostingRegression mit NA Werten die besten Resultate in Bezug auf den MAPE Score.
+Wir erkennen im Barplot deutlich, das alle Modelle besser sind als die multiple lineare Regression. Schon unser zweites Modell, das Lasso Modell schlägt unser Benchmark um das vielfache. Das beste Modell, welches wir für unsere Preisvorhersage nutzen ist die HistGradientBoostingRegression. Dicht gefolgt wird diese durch das gleiche Modell, jedoch ohne mit der Eigenschaft, mit NA Werten umgehen zu können. Bei beiden HistGradientBoosting Modellen transformieren wir die Target Variabel. Auf dem dritten Platz befindet sich das XGBoost Modell. Alle drei Modelle liefern uns einen sehr guten MAPE Score bei unserem Validierungsdatensatze. Auf Kaggle haben wir unterschiedliche Modelle eingereicht und auch hier, analog zum Testdatensatz, liefert die HistGradientBoostingRegression mit NA Werten die besten Resultate in Bezug auf den MAPE Score.
 
 ---
 # Untersuchung der "Variable Importance" 
-Wir konnten aus unserem besten Modell die Variabel Importance nicht heraus extrahieren. Aus diesem Grund haben wir die Variabel Importance von unserem zweitbesten Modell, dem xgboost Modell die Variable Importance extrahiert und diese dann mittels barplot visualisiert. 
+Wir konnten aus unserem besten Modell die Variable Importance nicht extrahieren. Aus diesem Grund haben wir die Variable Importance von unserem zweitbesten Modell, dem xgboost Modell extrahiert und diese dann mittels Barplot visualisiert. 
 
 ![png](output_77_0.png)
 
-Es ist sehr interessant zu sehen, das dass xgboost Modell das Feature gde_tax als höchstes Bewertet. Verglichen zu den Lasso, Decision Tree und Random Forest Modell, ist dort living_space das wichtigste Feature. xgboost bewertet living_space jedoch als zweit wichtigstes Feature. Dies ist im Barplot visuell dargestellt ersichtlich.
+Es ist sehr interessant zu sehen, das dass xgboost Modell das Feature gde_tax als höchstes bewertet. Verglichen zu den Lasso, Decision Tree und Random Forest Modellen, ist dort living_space das wichtigste Feature. xgboost bewertet living_space jedoch als zweit wichtigstes Feature. Dies ist im Barplot deutlich ersichtlich.
 
 ---
 # Fazit

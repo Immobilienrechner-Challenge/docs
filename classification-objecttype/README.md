@@ -15,6 +15,7 @@ Angenommen es wird in einem Umfeld klassifiziert, in welchem nur eine sehr klein
 
 ## Konfusionsmatrix
 Eine Konfusionsmatrix erhält man, wenn auf einer Achse die echten Klassen und auf der anderen die durch ein Modell bestimmte (vorhergesagte) Klassen gezeigt werden:
+
 |                      | POSITIV (ECHT)  | NEGATIV (ECHT)  |
 | -------------------- | --------------- | --------------- | 
 | POSITIV (VORHERSAGE) | Richtig Positiv | Falsch Negativ  |
