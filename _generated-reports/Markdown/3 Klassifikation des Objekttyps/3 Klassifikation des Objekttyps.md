@@ -133,12 +133,12 @@ Um klar identifizieren zu können, welches Modell wie gut performt, wird oft zun
 
 <br><br>
 
-| Modell                         | Accuracy | F1 weighted | F1 micro | F1 macro | MCC  | AUC  |
-| ------------------------------ | -------- | ----------- | -------- | -------- | ---- | ---- |
-| Neural Network                 | 0.65     | 0.56        | 0.63     | 0.15     | 0.43 | 0.7  |
+| Modell                        | Accuracy | F1 weighted | F1 micro | F1 macro | MCC  | AUC  |
+| ----------------------------- | -------- | ----------- | -------- | -------- | ---- | ---- |
+| Neural Network                | 0.65     | 0.56        | 0.63     | 0.15     | 0.43 | 0.7  |
 | KNeigboursClassifier           | 0.59     | 0.52        | 0.6      | 0.29     | 0.29 | 0.57 |
 | Random Forest Classifier       | 0.66     | 0.59        | 0.62     | 0.28     | 0.38 | 0.56 |
-| HistGradientBoostingClassifier | 0.68     | 0.61        | 0.67     | 0.3      | 0.4  | 0.56 |
+| HistGradientBoostingClassifier | 0.37     | 0.7         | 0.74     | 0.37     | 0.6  | 0.64 |
 
 ## Schlussfolgerung
 Das Neuronale Netzwerk ist sehr biased aufgrund der vielen "flat" Einträge und deswegen fällt der F1 macro dementsprechend tief aus.  
@@ -149,7 +149,7 @@ nicht vorhanden sind:
 
 Hier ist es aber wichtig, den Use-Case miteinzuberechnen. Das Neuronale Netzwerk klassifiziert am besten, wenn man den AUC Score verwenden will. Jedoch führt das dazu, dass die meisten Datensätze als "flat" oder "detached House" klassifiziert werden. Das Modell sagt nur selten andere Klassen vor. 
 
-Falls man jedoch will, dass die anderen Klassen auf Kosten von "flat" und "detached House" öfters vorgeschlagen werden, nehmen wir das Modell mit dem besten F1 macro score: HistGradientBoostingClassifier. Der HistGradientBoostingClassifier hat auch die beste Accuracy von allen Modellen. Hier sieht die Confusion Matrix dieses Modells:
+Falls man jedoch will, dass die anderen Klassen auf Kosten von "flat" und "detached House" öfters vorgeschlagen werden, nehmen wir das Modell mit dem besten F1 macro score: HistGradientBoostingClassifier. Der HistGradientBoostingClassifier hat aber die schlechteste Accuracy von allen Modellen. Hier sieht die Confusion Matrix dieses Modells:
 
 ![Confusion Matrix of HistGradientBoostingRegressor](confMatrixHGBC.png)
 
