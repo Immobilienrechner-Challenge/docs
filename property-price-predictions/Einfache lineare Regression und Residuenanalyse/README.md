@@ -1,4 +1,4 @@
-# 2.1 Einfache lineare Regression und Residuenanalyse
+# Einfache lineare Regression und Residuenanalyse
 
 Challenge: cml1/3Db Immobilienrechner <br/>
 Team: Alexander Shanmugam, Si Ben Tran, Gabriel Torrez Gamez, Haris Alic <br/>
@@ -44,20 +44,20 @@ Wir plotten die Verteilung von space_extracted und price_cleaned um zu sehen, wi
 
 ![png](output_13_0.png)
 
-Wir erkennen in beiden Verteilungsplots, dass space_extraced und price_cleaned nicht normalverteilt sind. Es sieht aus, wie eine Rechtsschiefe Verteilung. Es gibt einige Werte bei Space_extraced und price_cleaned die sehr hoch sind und somit die Verteilung beeinflussen.
-Mittels geeigneter Transformationen durch sqrt oder log, können wir die Verteilung der Daten verändern. Der Grund, warum wir die Transformationen durchführen, basiert auf den Bedinungen der Residuenanalyse, die im nächsten Abschnitt behandelt wird.
+Wir erkennen in beiden Verteilungsplots, dass space_extraced und price_cleaned nicht normalverteilt sind. Es sieht aus, wie eine Rechtsschiefe Verteilung. Es gibt einige Werte bei space_extraced und price_cleaned die sehr hoch sind und somit die Verteilung beeinflussen.
+Mittels geeigneter Transformationen durch sqrt oder log, können wir die Verteilung der Daten verändern. Der Grund, warum wir die Transformationen durchführen, basiert auf den Bedingungen der Residuenanalyse, die im nächsten Abschnitt behandelt wird.
 
 ## Verteilung von sqrt_space_extracted & sqrt_price_cleaned
   
 ![png](output_16_0.png)
 
-Durch die Wurzel Transformation erhalten wir für space_extracted und price_cleaned eine annährend normalverteilte Verteilung.
+Durch die Wurzel Transformation erhalten wir für space_extracted und price_cleaned eine annähernde Normalverteilung.
 
 ## Verteilung von log_space_extracted & log_price_cleaned
 
 ![png](output_19_0.png)
 
-Analog zur Wurzel Transformation, erhalten wir durch den log Transformation eine annährend normalverteilte Verteilung für space_extracted und price_cleaned.
+Analog zur Wurzel Transformation erhalten wir durch log Transformation eine annähernde Normalverteilung für space_extracted und price_cleaned.
 
 ---
 
@@ -80,9 +80,9 @@ Ein lineares Regressionsmodell ohne Transformation der Daten liefert uns folgend
 
 Wir erkennen im Streudiagramm, das space_extracted und price_cleaned nicht linear korrelieren. Ein Indiz dafür gibt uns auch der $R^2$.
 
-Aufgrund der Residuenanalyse erkennen wir, dass die Annahmen des linearen Regressionsmodells nicht erfüllt sind. Die Residuen sind nicht unabhängig voneinander. 
+Aufgrund der Residuenanalyse erkennen wir, dass die Voraussetzungen für ein lineares Regressionsmodell nicht erfüllt sind. Die Residuen sind nicht unabhängig voneinander. 
 
-Durch Transformationen von der x-Achse oder y-Achse können wir überprüfen, ob die Annahmen des linearen Regressionsmodells erfüllt werden. Dies geschieht im nächsten Abschnitt.
+Durch Transformationen der x-Achse oder y-Achse können wir überprüfen, ob die Voraussetzungen für ein lineares Regressionsmodell erfüllt werden. Dies geschieht im nächsten Abschnitt.
 
 ---
 # Modell 2 - Linear Regression mit sqrt_space_extracted & price_cleaned
@@ -99,9 +99,9 @@ Ein Lineares Regressionsmodell mittels sqrt Transformation von space_extracted l
 - MAPE  : 1.62
 - $R^2$    : 0.44
 
-Die Transformation mittels sqrt von space_extraced ergibt uns per se kein besseres Modell verglichen zum ersten Modell. 
+Die Transformation mittels sqrt von space_extraced ergibt kein besseres Modell verglichen zum ersten Modell. 
 
-Aufgrund der Residuenanalyse erkennen wir, dass die Annahmen des linearen Regressionsmodells nicht erfüllt sind. Die Residuen sind nicht unabhängig voneinander, sondern folgen einer Kegelform Muster.
+Aufgrund der Residuenanalyse erkennen wir, dass die Voraussetzungen für ein lineares Regressionsmodell nicht erfüllt sind. Die Residuen sind nicht unabhängig voneinander, sondern folgen einem Kegelmuster.
 
 Im nächsten Abschnitt nehmen wir die Transformation von price_cleaned vor und schauen uns an, ob sich das Modell verbessert.
 
@@ -121,9 +121,9 @@ Ein Lineares Regressionsmodell mittels Transformation von price_cleaned liefert 
 - MAPE  : 1.573
 - $R^2$    : 0.284
 
-Wir erkennen, durch die Transformation der Targetvariabel price_cleaned wird das Modell nicht besser sondern schlechter verglichern zu den ersten beiden Modellen.
+Wir erkennen durch die Transformation der Targetvariabel price_cleaned, dass das Modell nicht besser sondern schlechter wird, verglichen zu den ersten beiden Modellen.
 
-Ein nun interessantes Modell ist das Modell 4, welches wir dann beide Achsen mittels sqrt transformieren werden, um zu sehen, ob sich das Modell verbessert und die Bedingungen der Residuenanalyse erfüllt.
+Beim Modell 4 habenw wir beide Achsen mittels sqrt transformiert, um zu sehen, ob sich das Modell verbessert und die Bedingungen der Residuenanalyse erfüllt sind.
 
 ---
 # Modell 4 - Lineare Regression mit sqrt_space_extracted & sqrt_price_cleaned
@@ -134,16 +134,16 @@ Ein nun interessantes Modell ist das Modell 4, welches wir dann beide Achsen mit
 
 ## Modell 4 - Resultate und Interpretation
 
-Ein Lineares Regressionsmodell mittels Wurzeltransformation von space_extraced und price_cleaned liefert uns folgende Ergebenisse:
+Ein Lineares Regressionsmodell mittels Wurzeltransformation von space_extraced und price_cleaned liefert uns folgende Ergebnisse:
 
 - MAE   : 538526
 - MAPE  : 1.217
 - $R^2$    : 0.455
 
-Durch die Wurzeltransformationen beider Achsen verbessert sich das Modell einwenig. Dies erkennen wir am MAPE und am $R^2$.
+Durch die Wurzeltransformation beider Achsen verbessert sich das Modell. Dies erkennen wir am MAPE und am $R^2$.
 Der MAPE ist tiefer und der $R^2$ höher. 
 
-Aufgrund der Residuenanalyse erkennen wir, dass die Annahmen des linearen Regressionsmodells nicht ganz erfüllt werden. Die Residuen sind annährend unabhängig voneinander, folgen jedoch leicht einem Kegelmuster. Dafür haben die Residuen einen Erwartungswert von 0 und sind Normalverteilt.
+Aufgrund der Residuenanalyse erkennen wir, dass die Voraussetzungen für ein lineares Regressionsmodell nicht ganz erfüllt sind. Die Residuen sind annähernd unabhängig, folgen jedoch leicht einem Kegelmuster. Dafür haben die Residuen einen Erwartungswert von 0 und sind Normalverteilt.
 
 ---
 # Modell 5 - Lineare Regression mit log_space_extracted & price_cleaned
@@ -160,11 +160,11 @@ Ein Lineares Regressionsmodell mittels Log Transformation von space_extraced lie
 - MAPE  : 2.237
 - $R^2$    : 0.345
 
-Durch die Logarithmische Transformation von space_extraced wird das Modell verglichen zur sqrt Transformation beider Achsen schlechter. Dies ist deutlich am MAPE erkennbar, da diese nun deutlich höher ist und der $R^2$ tiefer wurde. 
+Durch die Logarithmische Transformation von space_extraced wird das Modell verglichen zur sqrt Transformation beider Achsen schlechter. Dies ist deutlich am MAPE erkennbar, da dieser nun deutlich höher ist und der $R^2$ tiefer wurde. 
 
 Aufgrund der Residuenanalyse erkennen wir, dass die Annahmen des linearen Regressionsmodells nicht erfüllt werden. Die Residuen sind nicht unabhängig voneinander. Der Erwartungswert und die Verteilung der Residuen sind dafür in Ordnung. 
 
-Vollständigkeitshalber transformieren wir in nächsten Abschnitt nur die Targetvariabel price_cleaned mittels log Transformation.
+Vollständigkeitshalber transformieren wir im nächsten Abschnitt nur die Targetvariabel price_cleaned mittels log Transformation.
 
 ---
 
@@ -182,9 +182,9 @@ Ein Lineares Regressionsmodell mittels Log Transformation von price_cleaned lief
 - MAPE  : 2.208
 - $R^2$    : -1933
 
-Durch die logarithmische Transformation von nur price_cleaned wurde das Modell noch schlechter. Analog ist dies bei der Wurzeltransformation von nur price_cleaned zu beobachten. Dieses Modell ist somit nicht geeignet, da der $R^2$ Score einen negativen Wert hat und somit das Lineare Modell nicht sinnvoll ist. 
+Durch die logarithmische Transformation von price_cleaned wurde das Modell noch schlechter. Analog wie bei der Wurzeltransformation von price_cleaned. Dieses Modell ist somit nicht geeignet, da der $R^2$ Score einen negativen Wert hat und somit das Lineare Modell nicht sinnvoll ist. 
 
-Im nächsten Abschnitt befassen wir uns mit der logarithmischen Transformation beider Achsen, sprich von space_extraced und price_cleaned und schauen uns an, ob sich das Modell verbessert. Aufgrund der sqrt Transformation gehen wir davon aus, dass sich das Modell verbessern muss. 
+Im nächsten Abschnitt befassen wir uns mit der logarithmischen Transformation beider Achsen, sprich von space_extraced und price_cleaned und schauen uns an, ob sich das Modell verbessert. Aufgrund der sqrt Transformation gehen wir davon aus, dass sich das Modell verbessern muss.
 
 ---
 # Modell 7 - Lineare Regression mit log_space_extracted & log_price_cleaned
@@ -201,17 +201,17 @@ Ein Lineares Regressionsmodell mittels Log Transformation von space_extraced und
 - MAPE  : 1.135
 - $R^2$    : 0.431
 
-wie erwartet hat sich das Modell durch die Transformationen von beiden Achsen deutlich verbessert. Wir erkennen, das der MAPE tiefer ist als ohne Transformation. Auch erkennen wir im Streudiagramm einige Ausreisser, die wahrscheinlich den Grossteil von MAPE beeinflussen. Die Residuen sind unabhängig voneinander und folgen einer Normalverteilung und haben einen Erwartungswert von 0. 
+Wie erwartet hat sich das Modell durch die Transformationen von beiden Achsen deutlich verbessert. Wir erkennen, das der MAPE tiefer ist als ohne Transformation. Auch erkennen wir im Streudiagramm einige Ausreisser, die wahrscheinlich den MAPE grösstenteils beeinflussen. Die Residuen sind unabhängig und folgen einer Normalverteilung und haben einen Erwartungswert von 0. 
 
-Verglichen zur Wurzeltransformation ist es hier deutlich erkennbarer, dass die Residuen unabahengiger voneinander sind und somit die Annahmen des linearen Regressionsmodells besser erfüllen. 
+Verglichen zur Wurzeltransformation ist es hier deutlich erkennbar, dass die Residuen unabhängiger voneinander sind und somit die Voraussetzungen des linearen Regressionsmodells besser erfüllen. 
 
-Aus diesem Grund werden wir nun uns weiter mit dem Modell 7 befassen und versuchen, dieses Modell weiter zu optimieren bzw. die Metriken zu verbessern.
+Aus diesem Grund werden wir uns weiter mit dem Modell 7 befassen und versuchen, dieses Modell weiter zu optimieren bzw. die Metriken zu verbessern.
 
 ---
 
 # Ausreisser entfernen
 
-Damit wir den MAPE weiter senken können, entfernen wir nun die Ausreisser, die wir im Streudiagramm erkennen konnten. Wir entfernen die Ausreisser, indem wir die Datenpunkte entfernen, die bei der Logarithmischen Transformation einen grösseren oder kleineren Wert als 3 Sigma haben. 
+Damit wir den MAPE weiter senken können, entfernen wir nun die Ausreisser, die wir im Streudiagramm erkennen konnten. Bei der Logarithmischen Transformation entfernen wir die Datenpunkte mit grösser oder kleiner 3 Sigma.
  
 ![png](output_46_0.png)
 
@@ -227,14 +227,14 @@ Damit wir den MAPE weiter senken können, entfernen wir nun die Ausreisser, die 
 
 ## Modell 7.1 - Resultate und Interpretation
 
-Ein Lineares Regressionsmodell mittels Log Transformation von space_extraced und price_cleaned sowie das entfernen von Ausreisser liefert uns folgende Ergebenisse:
+Ein Lineares Regressionsmodell mittels Log Transformation von space_extraced und price_cleaned sowie das entfernen der Ausreisser liefert uns folgende Ergebenisse:
 
 - MAE   : 39.981
 - MAPE  : 0.266
 - $R^2$    : 0.464
 
-Durch das entfernen der Outliers konnten wir unsere Metriken deutlich verbessern. Der MAPE sowie MAE wurden deutlich kleiner. Der $R^2$ ist liecht angestiegen, blieb jedoch unter 0.5. 
+Durch das entfernen der Ausreisser konnten wir unsere Metriken deutlich verbessern. Der MAPE sowie MAE wurden deutlich kleiner. Der $R^2$ ist liecht angestiegen, blieb jedoch unter 0.5. 
 
-Auch erkennen wir in den Residuenanalysen, dass die Residuen unabhängig voneinander sind und eine Normalverteilung haben. Der Erwartungswert ist 0.
+Auch erkennen wir, dass die Residuen unabhängig sind und einer Normalverteilung folgen. Der Erwartungswert ist 0.
 
 ---

@@ -10,7 +10,7 @@ $$
 \frac{1}{n}\sum_{i=1}^{n}I\left(y_i\neq\widehat{y_i}\right)  
 $$
 
-Wobei $I(y_i\neq\widehat{y_i})$ eine Dummy Variable ist, die den Wert $1$ annimmt, wenn die Bedingung erfüllt ist und $0$ wenn nicht.  
+Wobei $I(y_i\neq\widehat{y_i})$ eine Dummy Variable ist, die den Wert $1$ annimmt, wenn die Bedingung erfüllt ist und $0$ sonst.  
 Angenommen es wird in einem Umfeld klassifiziert, in welchem nur eine sehr kleine Anzahl der Observationen von der Standardklasse abweichen, zum Beispiel 2%, dann würde die Fehlerrate beim Einsatz des einfachsten Modells, welches nur die Standardklasse (die am häufigsten vorkommende Klasse des Datensatzes) zuweist, sehr klein sein (2%). Aus diesem Grund wurden weitere Metriken definiert, welche alle die Konfusionsmatrix als Grundlage verwenden.
 
 ## Konfusionsmatrix
@@ -36,7 +36,7 @@ $$
 \frac{TP}{TP+FN}
 $$  
 
-und entspricht dem Verhältnis aller korrekt als positiv klassifizierte Observationen zu der Anzahl Observationen der Klasse positiv: Der Recall gibt an, wie viele der insgesamt positiven Instanzen richtig klassifiziert wurden.
+und entspricht dem Verhältnis aller korrekt positiv klassifizierte Observationen zu der Anzahl Observationen der Klasse positiv: Der Recall gibt an, wie viele der insgesamt positiven Instanzen richtig klassifiziert wurden.
 
 ## Precision
 Die Precision wird wie folgt berechnet:
@@ -45,10 +45,10 @@ $$
 \frac{TP}{TP+FP}
 $$  
 
-und entspricht dem Verhältnis aller korrekt als positiv klassifizierte Observationen zu der Anzahl Observationen, welche vom Modell als positiv klassifiziert wurden: Es ist der Prozentsatz der Instanzen, die in die positive Klasse eingestuft werden, die tatsächlich richtig ist.
+und entspricht dem Verhältnis aller korrekt positiv klassifizierten Observationen zu der Anzahl Observationen, welche vom Modell als positiv klassifiziert wurden: Es ist der Prozentsatz der Instanzen, die in die positive Klasse eingestuft werden, die tatsächlich richtig ist.
 
-In der Praxis kommt es oft zu einem Kompromiss zwischen `Recall` und `Precision`: Wenn ein Klassifikationsmodell eine bessere `Precision` priorisiert, wirkt sich das negativ auf den `Recall` Wert aus und umgekehrt. Aus diesem Grund wird oft pro Anwendung definiert, welches Verhältnis im Vordergrund steht. 
-Das Ziel der Klassifikationsmodells der cml1 Challenge ist es, den Objekttyp aufgrund von ausgewählten Inputvariablen zu bestimmen. Es spielt in diesem Fall keine grosse Rolle, welche Art von Fehler begangen wird. Wichtiger ist es, insgesamt zu bestimmen, wie viele Klassifikationen korrekt bestimmt wurden.
+In der Praxis kommt es oft zu einem Kompromiss zwischen `Recall` und `Precision`: Wenn ein Klassifikationsmodell eine bessere `Precision` priorisiert, wirkt sich das negativ auf den `Recall` aus und umgekehrt. Aus diesem Grund wird oft pro Anwendung definiert, welches Verhältnis im Vordergrund stehen soll. 
+Das Ziel des Klassifikationsmodells der cml1 Challenge ist es, den Objekttyp aufgrund von ausgewählten Inputvariablen zu bestimmen. Es spielt in diesem Fall keine grosse Rolle, welche Art von Fehler begangen wird. Wichtiger ist es, insgesamt zu bestimmen, wie viele Klassifikationen korrekt bestimmt wurden.
 
 ## F1 Score
 Dazu könnte der `F1-Score` eingesetzt werden, denn dieser Kombiniert die `Precision` und den `Recall` wie folgt in einer Metrik:
@@ -70,7 +70,7 @@ $$
 \frac{TP+TN}{TP+TN+FP+FN}
 $$  
  
-Und entspricht der umgekehrten Fehlerrate. Sie unterliegt also denselben Problemen im Falle einer unbalancierten Klassifikation.
+Und entspricht der umgekehrten Fehlerrate. Sie unterliegt denselben Problemen im Falle einer unbalancierten Klassifikation.
 
 ## Matthews Correlation Coefficient (MCC)
 Der Matthews Correlation Coefficient fasst die komplette Konfusionsmatrix in einer Metrik zusammen:
@@ -79,7 +79,7 @@ $$
 MCC=\frac{TN\times T P-FP\times F N}{\sqrt{\left(TN+FN\right)\left(FP+TP\right)\left(TN+FP\right)\left(FN+TP\right)}}
 $$  
 
-Wie jeder Korrelationskoeffizient nimmt er Werte zwischen $-1$ und $1$ an und berücksichtigt auch richtig negative (`TN`) Klassifikationen, welche vom `F1-Score` nicht berücksichtigt werden. Der `MCC` wird demnach nur hoch, wenn das Klassifikationsmodell richtig positiv und negativ klassifiziert. 
+Wie jeder Korrelationskoeffizient nimmt er Werte zwischen $-1$ und $1$ an und berücksichtigt auch richtig negative (`TN`) Klassifikationen, welche vom `F1-Score` nicht berücksichtigt werden. Der `MCC` wird demnach nur hoch, wenn das Klassifikationsmodell richtig positiv und richtig negativ gut klassifiziert. 
 
 ## Averaging
 Bisher wurde nur der Fall dargestellt, in welchem zwei Klassen für das Klassifikationsmodell zur Auswahl vorhanden sind. In dem Fall der Objektklassifikation von Immobilien stehen $n\ >\ 2$ Klassen zur Auswahl.
@@ -118,7 +118,7 @@ Wobei $r_i$ der Anzahl Observationen in der $i$-ten Klasse entspricht.
 ## ROC-Curve
 Die Precision kann durch Anpassung der Entscheidungsschwelle, welche normalerweise bei $0.5$ liegt, erhöht werden. Wie bereits erwähnt wirkt sich das in der Regel direkt negativ auf den `Recall` aus. Diese Beziehung kann mit einer `ROC` (Receiver Operating Characteristic) Kurve dargestellt werden. Dazu wird das Verhältnis zwischen den falsch positiven und richtig positiven Klassifikationen zu allen möglichen Schwellwerten dargestellt:  
 
-![ROC Curve](img/roc_curve.png)
+![ROC Curve](roc_curve.png)
 
 Idealerweise sieht die Kurve aus wie in diesem Beispiel: Sie nähert sich an die obere, linke Ecke an. Das bedeutet, dass das Verhältnis von richtig positiven Klassifikationen hoch ist im Verhältnis zu den falsch positiven Klassifikationen. 
 
@@ -143,19 +143,19 @@ Das Neuronale Netzwerk ist sehr biased aufgrund der vielen "flat" Einträge und 
 Man sieht es in der Confusion Matrix wo die Diagonaleinträge mehr oder weniger
 nicht vorhanden sind:
 
-![Confusion Matrix of Neural NEtwork model](img/confMatrixNN.png)
+![Confusion Matrix of Neural NEtwork model](confMatrixNN.png)
 
 Hier ist es aber wichtig, den Use-Case miteinzuberechnen. Das Neuronale Netzwerk klassifiziert am besten, wenn man den AUC Score verwenden will. Jedoch führt das dazu, dass die meisten Datensätze als "flat" oder "detached House" klassifiziert werden. Das Modell sagt nur selten andere Klassen vor. 
 
-Falls man jedoch will, dass die anderen Klassen auf Kosten von "flat" und "detached House" öfters vorgeschlagen werden, nehmen wir das Modell mit dem besten F1 macro score: HistGradientBoostingClassifier. Der HistGradientBoostingClassifier hat aber die schlechteste Accuracy von allen Modellen. Hier sieht die Confusion Matrix dieses Modells:
+Falls man jedoch will, dass die anderen Klassen auf Kosten von "flat" und "detached House" öfters vorgeschlagen werden, nehmen wir das Modell mit dem besten F1 macro score: HistGradientBoostingClassifier. Der HistGradientBoostingClassifier hat aber die schlechteste Accuracy von allen Modellen. Hier die Confusion Matrix dieses Modells:
 
-![Confusion Matrix of HistGradientBoostingRegressor](img/confMatrixHGBC.png)
+![Confusion Matrix of HistGradientBoostingRegressor](confMatrixHGBC.png)
 
-Ohne genaueren Kontext oder Anwendungsfall können wir keine Empfehlung machen, welches Modell das bessere ist. In den meisten Fällen können wir aber eher das HistGradientBoostingClassifier Modell empfehlen.
+Ohne genaueren Kontext oder Anwendungsfall können wir keine Empfehlung machen, welches Modell das bessere ist. In den meisten Fällen schneidet das HistGradientBoostingClassifier Modell am besten ab.
 
 ## Abschätzung des Fehlers für neue Daten
 Um eine akkurate Abschätzung des Fehlers zu erhalten, teilt man die Daten in Trainings- und Validierungsdaten. Mit den Trainingsdaten wird das Modell gefittet. Da das Modell die Validierungsdaten nicht kennt, sind es neue Daten für das Modell. 
 
 Da wir in einigen Klassen mehr Datensätze als in andere haben, splitten wir die Daten mit Stratifying in Trainings- und Validierungsdaten, damit die Verteilung der Klassen in beiden Datensätzen ähnlich ist. Somit können wir eine akkurate Fehlerabschätzung für jede Klasse erstellen.
 
-Man muss beachten, dass die Trainings-, Validierungs- und die produktiven Testdaten auf die gleiche Art verarbeitet werden müssen, damit das Modell akkurate Vorhersagen machen kann.
+Man muss beachten, dass die Trainings-, Validierungs- und produktiven Testdaten auf die gleiche Art verarbeitet werden müssen, damit das Modell akkurate Vorhersagen machen kann.

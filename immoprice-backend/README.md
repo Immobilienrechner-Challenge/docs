@@ -1,7 +1,9 @@
 # immoprice-backend
 Dieses Backend basiert auf Django v4.1.3. Dependencies werden [hier](https://github.com/Immobilienrechner-Challenge/immoprice-backend/blob/main/requirements.txt) aufgelistet.
+
 ## Setup
 Um die API auf einer Docker Umgebung zu nutzen, muss man die vorgefertigte Datei [create_docker_container.sh](https://github.com/Immobilienrechner-Challenge/immoprice-backend/blob/main/create_docker_container.sh) starten und den Container Port 8099 durch einen nginx Reverse Proxy freigeben. 
+
 ### Setup ohne Reverse Proxy
 Falls man die API nicht hinter ein nginx Reverse Proxy laufen lassen will, müsste man die Netzwerkeinstellungen in der [create_docker_container.sh](https://github.com/Immobilienrechner-Challenge/immoprice-backend/blob/main/create_docker_container.sh) Datei anpassen:
 
@@ -39,4 +41,4 @@ Das Modell wurde nur auf einer kleinen Stichprobe von Daten aus der Schweiz trai
 Das Modell ist nicht in der Lage spezielle Fälle, wie z.B. wertvolle Aussichten, Immobilienlage an einem speziellen Ort, Innenausstattung oder historische Signifikanz miteinzuberechnen. 
 
 ## Cross-Origin Restrictions
-Es können Cross-Origin Restriction Fehler auftauchen, da die API konfiguriert ist, Anfragen aus https://immoprice.ch zu verarbeiten. Falls dies auftritt, muss die entsprechende Option im Browser manuell deaktiviert werden.
+Es können Cross-Origin-Restriction-Fehler auftreten, da die API so konfiguriert ist, Anfragen von https://immoprice.ch zu verarbeiten. Falls dies auftritt, muss die entsprechende Option im Browser manuell deaktiviert werden.
