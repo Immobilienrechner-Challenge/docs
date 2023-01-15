@@ -9,8 +9,8 @@ Im Verlauf der Challenge wurden uns drei Datensätze bereitgestellt:
 
 Die erste Version basiert auf Daten, welche von [immoscout24.ch](https://immoscout24.ch) extrahiert wurden. Zusätzlich wurden Daten vom Bundesamt für Statistik und weiteren Quellen zu den vorhandenen Einträgen dazu gelesen. In der zweiten Version des Datensatzes sind Daten basierend auf Extraktionen von [homegate.ch](https://homegate.ch) hinzugefügt worden. Der Kaggle-Datensatz ist wie die Version 2 basierend auf einem Mix von [immoscout24.ch](immoscout24.ch) und [homegate.ch](homegate.ch), sowie den zusätzlich gelesenen Attributen.  
 
-Dieser Bericht beschreibt nachfolgend die von den 4 Wrangeleers (Si Ben Tran, Gabriel Torres Gamez, Haris Alic, Alexander Shanmugam) eingesetzte Methodik, um das zuvor beschriebene Ziel zu erreichen und die dabei gefunden Erkenntnisse, sowie die Verwendung des erstellten Quellcodes.  
-Es ist nicht trivial, einen tiefen und nützlichen Überblick von grossen Datensets zu erhalten und um diesen Prozess übersichtlich und strukturiert zu gestalten, haben wir spaltenbasierte und zeilenbasierte Aktionen grösstenteils separiert. 
+Dieser Bericht beschreibt, die von den 4 Wrangeleers (Si Ben Tran, Gabriel Torres Gamez, Haris Alic, Alexander Shanmugam) eingesetzte Methodik und die dabei gefunden Erkenntnisse, sowie die Verwendung des erstellten Quellcodes.  
+Es ist nicht trivial einen tiefen und nützlichen Überblick von grossen Datensets zu erhalten und um diesen Prozess übersichtlich und strukturiert zu gestalten, haben wir spaltenbasierte und zeilenbasierte Aktionen grösstenteils separiert. 
 
 ## Spaltenbasierte Analyse
 Im Verzeichnis `dataWrangling` des `explorative-data-analysis` Repositories wurde Quellcode erstellt, um eine Einsicht über die zur Verfügung gestellten Spalten zu erhalten. Die drei verschiedenen Datensätze, welche uns im Verlauf der Challenge bereitgestellt wurden, sind bezüglich ihrer Spalten alle miteinander verwandt.  
