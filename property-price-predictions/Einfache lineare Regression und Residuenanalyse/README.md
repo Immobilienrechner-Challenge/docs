@@ -26,11 +26,11 @@ Zuerst werden die Daten eingelesen. Mehr informationen dazu sind im Jupyter Note
 
 Hier in diesem Abschnitt schauen wir uns die Spalten genauer an und entscheiden daraufhin, welches Feature wir für unser simples lineares Regressions Modell verwenden wollen.
 
-![png](output_7_0.png)
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_7_0.png)
 
 Die Fläche in Beige representiert nicht vorhandene Werte (NA's). Die schwarze Fläche representiert vorhandene Werte.
 
-![png](output_6_0.png)
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_6_0.png)
 Wir entscheiden uns für das Feature space_extracted und als Target price_cleaned.  
 Floor_space_merged wird für das lineare Regressionsmodell nicht verwendet, da über 10000 fehlende Werte im Feature vorhanden sind. Dies erkennen wir einerseits am Barplot und andererseits an der Heatmap. 
 
@@ -42,20 +42,20 @@ Wir plotten die Verteilung von space_extracted und price_cleaned um zu sehen, wi
 
 ## Verteilung von space_extracted & price_cleaned
 
-![png](output_13_0.png)
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_13_0.png)
 
 Wir erkennen in beiden Verteilungsplots, dass space_extraced und price_cleaned nicht normalverteilt sind. Es sieht aus, wie eine Rechtsschiefe Verteilung. Es gibt einige Werte bei space_extraced und price_cleaned die sehr hoch sind und somit die Verteilung beeinflussen.
 Mittels geeigneter Transformationen durch sqrt oder log, können wir die Verteilung der Daten verändern. Der Grund, warum wir die Transformationen durchführen, basiert auf den Bedingungen der Residuenanalyse, die im nächsten Abschnitt behandelt wird.
 
 ## Verteilung von sqrt_space_extracted & sqrt_price_cleaned
   
-![png](output_16_0.png)
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_16_0.png)
 
 Durch die Wurzel Transformation erhalten wir für space_extracted und price_cleaned eine annähernde Normalverteilung.
 
 ## Verteilung von log_space_extracted & log_price_cleaned
 
-![png](output_19_0.png)
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_19_0.png)
 
 Analog zur Wurzel Transformation erhalten wir durch log Transformation eine annähernde Normalverteilung für space_extracted und price_cleaned.
 
@@ -66,9 +66,9 @@ Analog zur Wurzel Transformation erhalten wir durch log Transformation eine ann�
 ---
 # Modell 1 - Linear Regression mit space extracted & price_cleaned
 
-![png](output_25_0.png)
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_25_0.png)
 
-![png](output_25_1.png)
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_25_1.png)
 
 ## Modell 1 - Resultate und Interpretation
 
@@ -87,9 +87,9 @@ Durch Transformationen der x-Achse oder y-Achse können wir überprüfen, ob die
 ---
 # Modell 2 - Linear Regression mit sqrt_space_extracted & price_cleaned
 
-![png](output_28_0.png)
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_28_0.png)
 
-![png](output_28_1.png) 
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_28_1.png) 
 
 ## Modell 2 - Resultate und Interpretation
 
@@ -109,9 +109,9 @@ Im nächsten Abschnitt nehmen wir die Transformation von price_cleaned vor und s
 # Modell 3 - Linear Regression mit pace_extracted & sqrt_price_cleaned
 
     
-![png](output_31_0.png)
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_31_0.png)
  
-![png](output_31_1.png)
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_31_1.png)
 
 ## Modell 3 - Resultate und Interpretation
 
@@ -128,9 +128,9 @@ Beim Modell 4 habenw wir beide Achsen mittels sqrt transformiert, um zu sehen, o
 ---
 # Modell 4 - Lineare Regression mit sqrt_space_extracted & sqrt_price_cleaned
  
-![png](output_34_0.png)
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_34_0.png)
 
-![png](output_34_1.png)
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_34_1.png)
 
 ## Modell 4 - Resultate und Interpretation
 
@@ -148,9 +148,9 @@ Aufgrund der Residuenanalyse erkennen wir, dass die Voraussetzungen für ein lin
 ---
 # Modell 5 - Lineare Regression mit log_space_extracted & price_cleaned
  
-![png](output_37_0.png)
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_37_0.png)
  
-![png](output_37_1.png)
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_37_1.png)
 
 ## Modell 5 - Resultate und Interpretation
 
@@ -170,9 +170,9 @@ Vollständigkeitshalber transformieren wir im nächsten Abschnitt nur die Target
 
 # Modell 6 - Lineare Regression mit space_extracted & log_price_cleaned
 
-![png](output_40_0.png)
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_40_0.png)
  
-![png](output_40_1.png)
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_40_1.png)
 
 ## Modell 6 - Resultate und Interpretation
 
@@ -189,9 +189,9 @@ Im nächsten Abschnitt befassen wir uns mit der logarithmischen Transformation b
 ---
 # Modell 7 - Lineare Regression mit log_space_extracted & log_price_cleaned
  
-![png](output_43_0.png)
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_43_0.png)
   
-![png](output_43_1.png)
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_43_1.png)
 
 ## Modell 7 - Resultate und Interpretation
 
@@ -213,17 +213,17 @@ Aus diesem Grund werden wir uns weiter mit dem Modell 7 befassen und versuchen, 
 
 Damit wir den MAPE weiter senken können, entfernen wir nun die Ausreisser, die wir im Streudiagramm erkennen konnten. Bei der Logarithmischen Transformation entfernen wir die Datenpunkte mit grösser oder kleiner 3 Sigma.
  
-![png](output_46_0.png)
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_46_0.png)
 
-![png](output_46_1.png)
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_46_1.png)
 
 ---
 
 # Modell 7.1 - Lineare Regression mit log_space_extracted & log_price_cleaned ohne Ausreisser
 
-![png](output_48_0.png)
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_48_0.png)
  
-![png](output_48_1.png)
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Einfache%20lineare%20Regression%20und%20Residuenanalyse/output_48_1.png)
 
 ## Modell 7.1 - Resultate und Interpretation
 

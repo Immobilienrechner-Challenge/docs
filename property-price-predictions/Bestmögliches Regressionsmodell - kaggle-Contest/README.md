@@ -25,7 +25,7 @@ Die multiple lineare Regression ist ein statistisches Modell, das verwendet wird
     Best params: {'fit_intercept': False, 'positive': True}
     Mean absolute percentage error: 3187350940.2074747
 
-![png](output_20_1.png)
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Bestmögliches%20Regressionsmodell%20-%20kaggle-Contest/output_20_1.png)
 
 Wir evaluieren alle unsere Modelle mit dem MAPE Score und zeigen mittels einer Visualisierung wie gut unser Modell den Immobilienpreis vorhersagen kann.  
 In der Visualisierung wird der richtige Preis durch die x-Achse dargestellt. Die blaue Linie repräsentiert ein perfektes Modell. 
@@ -41,7 +41,7 @@ Modell 2 ist ein multiples lineares Lasso Modell. Die Lasso Regression ist eine 
     Best parameters: {'alpha': 100000.0, 'fit_intercept': True, 'max_iter': 100, 'positive': False, 'random_state': 42, 'selection': 'cyclic'}
     Mean absolute percentage error: 0.5057373981991736
 
-![png](output_23_1.png)
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Bestmögliches%20Regressionsmodell%20-%20kaggle-Contest/output_23_1.png)
 
 Wir erkennen im Plot eine deutliche Verbesserung mittels Lasso Regression, verglichen zum multiplen linearen Modell. Auch die MAPE Metrik ist deutlich gesunken auf 0.5. Da bei der Lasso Regression Features bestraft werden, die keinen Beitrag zur Vorhersage des Immobilienpreises haben, können wir hier schon die ersten wichtigen Features extrahieren. Sprich Features die keinen Koeffizienten Wert von 0 aufweisen. 
 
@@ -51,7 +51,7 @@ Wir erkennen im Plot eine deutliche Verbesserung mittels Lasso Regression, vergl
     Best parameters: {'alpha': 100000.0, 'fit_intercept': True, 'max_iter': 100, 'positive': False, 'random_state': 42, 'selection': 'cyclic'}
     Mean absolute percentage error: 0.5057368618984887
 
-![png](output_28_1.png)
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Bestmögliches%20Regressionsmodell%20-%20kaggle-Contest/output_28_1.png)
 
 Hier sehen wir, dass unser neues Modell mit weniger Features einen identischen MAPE Score hat.
 
@@ -63,7 +63,7 @@ Modell 3 ist ein multiples lineares Ridge Modell. Die Ridge Regression ist eine 
     Best parameters: {'alpha': 10000.0, 'fit_intercept': True, 'max_iter': 100, 'positive': False, 'random_state': 42}
     Mean absolute percentage error: 0.5004054411589232
 
-![png](output_31_1.png)
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Bestmögliches%20Regressionsmodell%20-%20kaggle-Contest/output_31_1.png)
 
 Wir schauen uns nun das Ridge Regression Modell an und erkennen, das auch hier die roten Punkte deutlich besser auf der blauen Linie liegen als beim multiplen Linearen Modell. Entsprechend ist auch der MAPE deutlich tiefer. Sowohl beim Lasso als auch bei der Ridge Regression können wir sagen, das der MAPE Score ähnlich ist und gleich gute Resultate liefert. Da ein MAPE von ca. 50% uns nicht genügt, verwenden wir weitere Modelle um unsere Vorhersage über den Immobilienpreis zu verbessern.
 
@@ -74,7 +74,7 @@ Modell 4 ist ein multiples lineares Elastic Net Modell. Elastic Net Regression i
     Fitting 5 folds for each of 240 candidates, totalling 1200 fits
     Best parameters: {'alpha': 100000.0, 'fit_intercept': True, 'l1_ratio': 1, 'max_iter': 100, 'positive': False, 'random_state': 42, 'selection': 'cyclic'}
 
-![png](output_34_1.png)
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Bestmögliches%20Regressionsmodell%20-%20kaggle-Contest/output_34_1.png)
 
 Bei der Elastic Net Regression erkennen wir keine Verbesserung des MAPE Scores. Wir testen nun weitere Modelle mit unserem Datensatz.
 
@@ -85,7 +85,7 @@ Modell 5 ist ein KNN Modell. Die KNN Regression (K-Nearest Neighbors Regression)
     Fitting 4 folds for each of 8 candidates, totalling 32 fits
     Best parameters: {'algorithm': 'ball_tree', 'leaf_size': 5, 'metric': 'minkowski', 'n_neighbors': 3, 'p': 1, 'weights': 'distance'}
 
-![png](output_37_1.png)
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Bestmögliches%20Regressionsmodell%20-%20kaggle-Contest/output_37_1.png)
 
 Es ist sehr interessant zu sehen, dass die KNN Regression eine deutliche Verbesserung zur Vorhersage des Immobilienpreises beiträgt. Der MAPE ist deutlich gesunken und befindet sich nun im Bereich von 0.38. Die roten Punkte befinden sich nun nach und nach mehr auf der blauen Linie und unser Modell wird besser. Wir nutzen nun andere Modelle, um die Immobilienpreise besser vorhersagen zu können.
 
@@ -96,7 +96,7 @@ Modell 6 ist ein Decision Tree Modell. Die Decision Tree Regression ist ein Mode
     Fitting 5 folds for each of 24 candidates, totalling 120 fits
     Best parameters: {'criterion': 'absolute_error', 'max_depth': None, 'max_features': None, 'min_samples_leaf': 1, 'min_samples_split': 2, 'random_state': 42, 'splitter': 'best'}
 
-![png](output_40_1.png)
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Bestmögliches%20Regressionsmodell%20-%20kaggle-Contest/output_40_1.png)
 
 Der Decision Tree liefert und einen schlechteren MAPE Score als der aus der KNN Regression. Trotzdem ist dieser interessant für uns, um zu schauen ob die Feature Importance ähnlich oder gleich ist, wie die von der Lasso Regression. Im nächsten Abschnitt extrahieren wir die wichtigsten Features und plotten diese in einem Barplot und schauen uns an, ob sich der MAPE Score verschlechtert.
 
@@ -105,14 +105,14 @@ Der Decision Tree liefert und einen schlechteren MAPE Score als der aus der KNN 
     Fitting 5 folds for each of 24 candidates, totalling 120 fits
     Best parameters: {'criterion': 'poisson', 'max_depth': None, 'max_features': None, 'min_samples_leaf': 1, 'min_samples_split': 2, 'random_state': 42, 'splitter': 'best'}
 
-![png](output_45_1.png)
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Bestmögliches%20Regressionsmodell%20-%20kaggle-Contest/output_45_1.png)
 
 Wir nutzen nun die wichtigsten Features der Lasso Regression und verwenden unseren Decision Tree Regressor und schauen uns an, wie sich der MAPE Score mit anderen Features verändert. 
 
     Fitting 5 folds for each of 24 candidates, totalling 120 fits
     Best parameters: {'criterion': 'squared_error', 'max_depth': None, 'max_features': 'sqrt', 'min_samples_leaf': 1, 'min_samples_split': 2, 'random_state': 42, 'splitter': 'random'}
 
-![png](output_47_1.png)
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Bestmögliches%20Regressionsmodell%20-%20kaggle-Contest/output_47_1.png)
 
 Durch die Auswahl der wichtigsten Features von der Lasso Regression, erhalten wir einen schlechteren MAPE Score als mit den wichtigsten Features vom Decision Tree selbst.  
 
@@ -123,18 +123,18 @@ Modell 7 ist ein Random Forest Modell. Random Forest Regression ist ein Ensemble
     Fitting 4 folds for each of 1 candidates, totalling 4 fits
     Best parameters: {'max_depth': None, 'max_features': None, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 100, 'random_state': 42}
 
-![png](output_50_1.png)
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Bestmögliches%20Regressionsmodell%20-%20kaggle-Contest/output_50_1.png)
 
 ## Untersuchung der Variable Importance Modell 7
 
-![png](output_52_0.png)
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Bestmögliches%20Regressionsmodell%20-%20kaggle-Contest/output_52_0.png)
 
 Analog wie beim Modell 6 sehen wir, dass living_space das wichtigste Feature ist, um den Immobilienpreis vorhersagen zu können. Wir erstellen im nächsten Schritt das gleiche Modell, nur mit den wichtigsten Features. Erwartungsgemäss verschlechtert sich der MAPE einwenig.
 
     Fitting 4 folds for each of 1 candidates, totalling 4 fits
     Best parameters: {'max_depth': None, 'max_features': None, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 100, 'random_state': 42}
 
-![png](output_54_1.png)
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Bestmögliches%20Regressionsmodell%20-%20kaggle-Contest/output_54_1.png)
 
 Nun nehmen wir die wichtigsten Features aus dem Modell Decision Tree und Lasso Regression.
 
@@ -143,14 +143,14 @@ Decision Tree Features:
     Fitting 4 folds for each of 1 candidates, totalling 4 fits
     Best parameters: {'max_depth': None, 'max_features': None, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 100, 'random_state': 42}
 
-![png](output_57_1.png)
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Bestmögliches%20Regressionsmodell%20-%20kaggle-Contest/output_57_1.png)
 
 Lasso Features:
 
     Fitting 4 folds for each of 1 candidates, totalling 4 fits
     Best parameters: {'max_depth': None, 'max_features': None, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 100, 'random_state': 42}
 
-![png](output_59_1.png)
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Bestmögliches%20Regressionsmodell%20-%20kaggle-Contest/output_59_1.png)
 
 Wie wir durch unsere Modelle und Plots zeigen konnten, lässt sich vieles vereinfachen indem wir nur die wichtigsten Features aus unserem Datensatz nehmen und entsprechend trainieren und validieren. 
 
@@ -163,7 +163,7 @@ Modell 8 ist ein Gradient Boosting Modell. Gradient Boosting Regression ist ein 
     Fitting 5 folds for each of 1 candidates, totalling 5 fits
     Best parameters: {'learning_rate': 0.1, 'max_depth': 12, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 100, 'random_state': 42}
 
-![png](output_62_1.png)
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Bestmögliches%20Regressionsmodell%20-%20kaggle-Contest/output_62_1.png)
 
 Der Gradient Boosting Regressor liefert uns einen ähnlichen MAPE Score wie der Random Forest. Beide MAPE Scores liegen im Bereich von 0.32.
 
@@ -174,7 +174,7 @@ Modell 9 ist ein XGBoost Modell. XGBoost Regression ist ein weiteres Ensemble-Mo
     Fitting 4 folds for each of 1 candidates, totalling 4 fits
     Best parameters: {'booster': 'gbtree', 'learning_rate': 0.1, 'max_depth': 15, 'random_state': 42}
 
-![png](output_65_1.png)
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Bestmögliches%20Regressionsmodell%20-%20kaggle-Contest/output_65_1.png)
 
 Durch XGBoost konnten wir unseren MAPE Score nochmals um 2 Prozent verbessern. Der MAPE Score liegt nun im Bereich von 0.30.
 
@@ -185,7 +185,7 @@ Modell 10 ist ein Histgradientboosting Modell. HistGradientBoosting Regression i
     Fitting 4 folds for each of 1 candidates, totalling 4 fits
     Best parameters: {'learning_rate': 0.1, 'loss': 'absolute_error', 'max_depth': 18, 'max_leaf_nodes': None, 'random_state': 42}
 
-![png](output_68_1.png)
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Bestmögliches%20Regressionsmodell%20-%20kaggle-Contest/output_68_1.png)
 
 Mit dem Histgradientboosting können wir nun einen MAPE Score von 0.26 liefern, was deutlich besser ist als alle unsere anderen Modelle. Da der Histgradientboosting auch mit NA Werten umgehen kann, werden wir dies im nächsten Abschnitt durchführen und schauen was für einen MAPE wir erhalten.
 
@@ -196,7 +196,7 @@ Unser Vorheriges Modell kann mit NA Werten umgehen. Neu trainieren wir es auf ni
     Fitting 4 folds for each of 1 candidates, totalling 4 fits
     Best parameters: {'learning_rate': 0.1, 'loss': 'absolute_error', 'max_depth': 25, 'max_leaf_nodes': None, 'random_state': 42}
 
-![png](output_71_1.png)
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Bestmögliches%20Regressionsmodell%20-%20kaggle-Contest/output_71_1.png)
 
 Dies ist unser bestes Modell. Mit Histgradientboosting, Log Transformation und NA Werten erreicht unser Modell den tiefsten MAPE Score auf unserem Validierungsdatensatz mit 0.23. Wir erkennen im Plot, dass die meisten roten Punkte sich im Bereich der blauen Linie aufhalten. Im oberen und tieferen Bereich streuen die Punkte von der Linie einwenig ab. Dies bedeutet, dass wir die besten Vorhersagen im mittleren Bereich unserer Immobilienpreise liefern können.
 
@@ -219,7 +219,7 @@ Dabei dient das Modell 1 "Multiple lineare Regression", als Benchmark.
 | ElasticNet Regression                   | 0.505737      |
 | Multiple Linear Regression              | 3187350940.20 |
 
-![png](output_74_1.png)
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Bestmögliches%20Regressionsmodell%20-%20kaggle-Contest/output_74_1.png)
 
 Wir erkennen im Barplot deutlich, das alle Modelle besser sind als die multiple lineare Regression. Schon unser zweites Modell, das Lasso Modell schlägt unseren Benchmark um ein Vielfaches. Das beste Modell, welches wir für unsere Preisvorhersage nutzen ist HistGradientBoostingRegression. Dicht gefolgt vom gleichen Modell, jedoch ohne mit NA Werten umgehen zu können. Bei beiden HistGradientBoosting Modellen transformieren wir die Target Variable. Auf dem dritten Platz befindet sich das XGBoost Modell. Alle drei Modelle liefern uns einen sehr guten MAPE Score bei unserem Validierungsdatensatz. Auf Kaggle haben wir unterschiedliche Modelle eingereicht und auch hier, analog zum Testdatensatz, liefert die HistGradientBoostingRegression mit NA Werten die besten Resultate in Bezug auf den MAPE Score.
 
@@ -227,7 +227,7 @@ Wir erkennen im Barplot deutlich, das alle Modelle besser sind als die multiple 
 # Untersuchung der "Variable Importance" 
 Wir konnten aus unserem besten Modell die Variable Importance nicht extrahieren. Aus diesem Grund haben wir die Variable Importance von unserem zweitbesten Modell, dem xgboost Modell extrahiert und diese dann mittels Barplot visualisiert. 
 
-![png](output_77_0.png)
+![png](https://github.com/Immobilienrechner-Challenge/docs/raw/main/property-price-predictions/Bestmögliches%20Regressionsmodell%20-%20kaggle-Contest/output_77_0.png)
 
 Es ist sehr interessant zu sehen, das dass xgboost Modell das Feature gde_tax als höchstes bewertet. Verglichen zu den Lasso, Decision Tree und Random Forest Modellen, ist dort living_space das wichtigste Feature. xgboost bewertet living_space jedoch als zweit wichtigstes Feature. Dies ist im Barplot deutlich ersichtlich.
 

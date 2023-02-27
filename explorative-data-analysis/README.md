@@ -80,7 +80,7 @@ Anders als bei zuvor betrachtete Flächen, finden wir die grösste Menge an Date
  
 In der zweiten Version der Daten wird die Spalte `Living_area_unified` beigefügt, welche dieselben Informationen wie `Space extracted` beinhaltet. Daher können beide Spalten genutzt werden.  
 In der Kaggle Version der Daten beinhaltet aber weder `Living_area_unified` noch `Space extracted` den vollen Datensatz, weshalb fehlende Werte der einen Spalte mit den Daten der anderen Spalte gefüllt werden: 
-![](img/living_space_mv_kaggle.png)
+![](https://github.com/Immobilienrechner-Challenge/docs/raw/main/explorative-data-analysis/img/living_space_mv_kaggle.png)
 
 #### Bruttorendite
 Die Bruttorendite ist in allen Versionen nur sehr spärlich gefüllt, weshalb wir dieses Merkmal für unsere Modellierung ausschliessen. 
@@ -158,7 +158,7 @@ Ein kompletter Bericht über die Zusammensetzung der Daten kann pro Version im V
 ### Version 1
 Die Version 1 der Daten hat im unbehandelten Zustand 108 Spalten und 13378 Zeilen. Nach der Bereinigung haben wir ein Datensatz mit 61 Spalten und 12338 Zeilen. Dabei sind sämtliche Umweltfaktoren, Koordinaten, Kantone, Gemeinden, Postleitzahlen, Arten und Gemeindemerkmale ausser der politischen Landschaft zu 100% gefüllt. Eine Für die Klassifizierung relevante Eigenschaft der Daten ist die ungleichmässige Verteilung der Arten von Immobilien: 
 
-![](img/type_distr.png)  
+![](https://github.com/Immobilienrechner-Challenge/docs/raw/main/explorative-data-analysis/img/type_distr.png)  
 
 Mit Abstand die meisten Immobilien sind Wohnungen, gefolgt von frei stehenden Häusern. Alle anderen Kategorien sind zu weniger als 10% vertreten.  
 
@@ -171,7 +171,7 @@ Der durchschnittliche Preis einer Immobilie im Datensatz liegt bei CHF 1.2 Milli
 ### Version 2
 Die zweite Version der Daten hat im rohen Zustand 134 Spalten und 22481 Zeilen. Nach der Bereinigung hat der Datensatz noch 64 Spalten und 21412 Zeilen. Die Merkmale der Umweltfaktoren, Koordinaten, Kanton, Gemeinde, Postleitzahlen, Art und Gemeindemerkmale ausser der politischen Landschaft sind nach wie vor zu 100% gefüllt und die Verteilung der Arten von Immobilien ist nach wie vor sehr ungleichmässig:
 
-![](img/type_distr2.png)  
+![](https://github.com/Immobilienrechner-Challenge/docs/raw/main/explorative-data-analysis/img/type_distr2.png)  
 
 Die Merkmale letzte Sanierung (10%), Strasse (19%), Strassennummer (12%), Stockwerk (25%), Nutzfläche (26%), Baujahr (32%), Grundstücksfläche (36%) und features (39%) sind die am wenigsten gefüllten Merkmale.  
 
@@ -181,7 +181,7 @@ Der durchschnittliche Preis einer Immobilie im Datensatz liegt bei CHF 1.3 Milli
 ### Kaggle
 Die Kaggle Version der Daten hat unverändert 132 Spalten und 24556 Zeilen. Die Anzahl Zeilen dürfen wir nicht verändern, aber die Spalten reduzieren wir auf 64. Auch hier sind die Merkmale der Umweltfaktoren, Koordinaten, Kanton, Gemeinde, Postleitzahlen und Gemeindemerkmale ausser der politischen Landschaft sind nach wie vor zu 100% gefüllt und die Verteilung der Arten von Immobilien ist nach wie vor sehr ungleichmässig:
 
-![](img/type_distr3.png)  
+![](https://github.com/Immobilienrechner-Challenge/docs/raw/main/explorative-data-analysis/img/type_distr3.png)  
 112 Observationen besitzen aber keine Art der Immobilie.  
 
 Die Merkmale letzte Sanierung (12%), Nutzfläche (21%), Stockwerk (22%), Strasse (34%) und Strassennummer (22%), Grundstücksfläche (36%), Baujahr (38%) und features (43%) sind die am wenigsten gefüllten Merkmale.  

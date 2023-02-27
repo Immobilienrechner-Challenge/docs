@@ -7,12 +7,12 @@ Um die API auf einer Docker Umgebung zu nutzen, muss man die vorgefertigte Datei
 ### Setup ohne Reverse Proxy
 Falls man die API nicht hinter ein nginx Reverse Proxy laufen lassen will, müsste man die Netzwerkeinstellungen in der [create_docker_container.sh](https://github.com/Immobilienrechner-Challenge/immoprice-backend/blob/main/create_docker_container.sh) Datei anpassen:
 
-![Einstellung Docker](img/EinstellungDocker.png)
+![Einstellung Docker](https://github.com/Immobilienrechner-Challenge/docs/raw/main/immoprice-backend/img/EinstellungDocker.png)
 
 ## Hosting
 Das Hosting des Backends findet auf einer Docker Umgebung statt. Alle Anfragen werden durch den Reverse Proxy von [https://api.immoprice.ch](https://api.immoprice.ch) auf das Backend weitergeleitet. 
 
-![Immoprice Hosting](img/Setup.png)
+![Immoprice Hosting](https://github.com/Immobilienrechner-Challenge/docs/raw/main/immoprice-backend/img/Setup.png)
 
 ## Schnittstellen
 Nachfolgend wurde die Struktur der relevanten Schnittstelle erfasst:

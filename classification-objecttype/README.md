@@ -118,7 +118,7 @@ Wobei $r_i$ der Anzahl Observationen in der $i$-ten Klasse entspricht.
 ## ROC-Curve
 Die Precision kann durch Anpassung der Entscheidungsschwelle, welche normalerweise bei $0.5$ liegt, erhöht werden. Wie bereits erwähnt wirkt sich das in der Regel direkt negativ auf den `Recall` aus. Diese Beziehung kann mit einer `ROC` (Receiver Operating Characteristic) Kurve dargestellt werden. Dazu wird das Verhältnis zwischen den falsch positiven und richtig positiven Klassifikationen zu allen möglichen Schwellwerten dargestellt:  
 
-![ROC Curve](img/roc_curve.png)
+![ROC Curve](https://github.com/Immobilienrechner-Challenge/docs/raw/main/classification-objecttype/img/roc_curve.png)
 
 Idealerweise sieht die Kurve aus wie in diesem Beispiel: Sie nähert sich an die obere, linke Ecke an. Das bedeutet, dass das Verhältnis von richtig positiven Klassifikationen hoch ist im Verhältnis zu den falsch positiven Klassifikationen. 
 
@@ -143,13 +143,13 @@ Das Neuronale Netzwerk ist sehr biased aufgrund der vielen "flat" Einträge und 
 Man sieht es in der Confusion Matrix wo die Diagonaleinträge mehr oder weniger
 nicht vorhanden sind:
 
-![Confusion Matrix of Neural NEtwork model](img/confMatrixNN.png)
+![Confusion Matrix of Neural NEtwork model](https://github.com/Immobilienrechner-Challenge/docs/raw/main/classification-objecttype/img/confMatrixNN.png)
 
 Hier ist es aber wichtig, den Use-Case miteinzuberechnen. Das Neuronale Netzwerk klassifiziert am besten, wenn man den AUC Score verwenden will. Jedoch führt das dazu, dass die meisten Datensätze als "flat" oder "detached House" klassifiziert werden. Das Modell sagt nur selten andere Klassen vor. 
 
 Falls man jedoch will, dass die anderen Klassen auf Kosten von "flat" und "detached House" öfters vorgeschlagen werden, nehmen wir das Modell mit dem besten F1 macro score: HistGradientBoostingClassifier. Der HistGradientBoostingClassifier hat aber die schlechteste Accuracy von allen Modellen. Hier die Confusion Matrix dieses Modells:
 
-![Confusion Matrix of HistGradientBoostingRegressor](img/confMatrixHGBC.png)
+![Confusion Matrix of HistGradientBoostingRegressor](https://github.com/Immobilienrechner-Challenge/docs/raw/main/classification-objecttype/img/confMatrixHGBC.png)
 
 Ohne genaueren Kontext oder Anwendungsfall können wir keine Empfehlung machen, welches Modell das bessere ist. In den meisten Fällen schneidet das HistGradientBoostingClassifier Modell am besten ab.
 
