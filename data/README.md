@@ -3,6 +3,8 @@ In unserem "data" Repository speichern wir alle Datensätze ab, welche wir für 
 
 ## Originale Datensätze
 Folgende Datensätze haben wir von unserem Dozent @fbenites erhalten. 
+
+
 | Dateiname                   | Beschreibung                                                                                                              |
 | --------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
 | immo_data_202208.csv        | Erster erhaltener Datensatz.                                                                                              |
@@ -11,6 +13,8 @@ Folgende Datensätze haben wir von unserem Dozent @fbenites erhalten.
 
 ## Bereinigte Datensätze
 Folgende Datensätze sind unsere bereinigten Versionen der Datensätze, welche wir für die Challenge erhalten haben.
+
+
 | Dateiname                  | Beschreibung                                         |
 | -------------------------- | ---------------------------------------------------- |
 | clean_gde.csv              | Bereinigte Version vom ersten erhaltenen Datensatz.  |
@@ -19,6 +23,8 @@ Folgende Datensätze sind unsere bereinigten Versionen der Datensätze, welche w
 
 ## Bereinigte Datensätze ohne Ortsinformationen
 Folgende Datensätze sind unsere bereinigten Versionen der Datensätze, welche wir für die Challenge erhalten haben. Jedoch fehlen hier die Ortsinformationen.
+
+
 | Dateiname              | Beschreibung                                                                |
 | ---------------------- | --------------------------------------------------------------------------- |
 | clean.csv              | Bereinigte Version vom ersten erhaltenen Datensatz ohne Ortsinformationen.  |
@@ -27,12 +33,16 @@ Folgende Datensätze sind unsere bereinigten Versionen der Datensätze, welche w
 
 ## Ortsinformationen für jede Postleitzahl
 Folgender Datensatz wurde aus den bereinigten Daten generiert. Hier sind zu jeder Postleitzahl informationen zu diesem Ort aufgelistet.
+
+
 | Dateiname        | Beschreibung                                                                                                                    |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | plz_data.parquet | Aus clean_gde_v2.csv generierte Ortsinformationen. Fehlende Werte wurden aus kaggle_gde_cleaned.parquet gefüllt oder imputiert. |
 
 ## Andere
 Hier sind weitere Datensätze aufgelistet.
+
+
 | Dateiname                  | Beschreibung                                                                                          |
 | -------------------------- | ----------------------------------------------------------------------------------------------------- |
 | plz_verzeichnis_v2.geojson | Datensatz der Post zu den Postleitzahlen in der Schweiz inkl. geometrische Formen jeder Postleitzahl. |
